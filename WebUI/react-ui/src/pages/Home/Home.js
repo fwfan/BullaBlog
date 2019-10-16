@@ -14,6 +14,7 @@ class Home extends Component {
                     <div></div>
                     <div id="update-container" className="tab-content content-container-show">1ghjghjh</div>
                     <ListItem />
+                    <ListItem />
                 </div>
                 <div className="content-container-right" >
                     <div className="content-container-right-ajax-test" id="content-container-right-ajax-test">ajaxtest</div>
