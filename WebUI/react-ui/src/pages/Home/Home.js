@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Home.css';
-
+import ListItem from './ListItem.js'
 class Home extends Component {
     render() {
         return (
@@ -13,6 +13,7 @@ class Home extends Component {
                 <div className="content-container" >
                     <div></div>
                     <div id="update-container" className="tab-content content-container-show">1ghjghjh</div>
+                    <ListItem />
                 </div>
                 <div className="content-container-right" >
                     <div className="content-container-right-ajax-test" id="content-container-right-ajax-test">ajaxtest</div>
