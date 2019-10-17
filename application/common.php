@@ -10,3 +10,9 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+
+class ToolFunctions {
+    public function formatResult($data){
+        
+    }
+}

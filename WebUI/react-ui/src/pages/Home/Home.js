@@ -2,6 +2,28 @@ import React, { Component } from 'react';
 import './Home.css';
 import ListItem from './ListItem.js'
 class Home extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            content : []
+        }
+    }
+
+    getData(){
+        fetch(`/public/Index/Index/subIndex`, {
+            method: 'GET'
+        }).then(res => res.text()).then(
+            data => {
+                console.log(data);
+                this.setState({ content: data })
+            }
+        )
+
+    }
+    componentWillMount() {
+        this.getData();
+    }
+
     render() {
         return (
             <div>
