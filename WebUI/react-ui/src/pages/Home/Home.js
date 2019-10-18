@@ -14,13 +14,12 @@ class Home extends Component {
             method: 'GET'
         }).then(res => res.text()).then(
             data => {
-                console.log(data);
                 this.setState({ content: data })
             }
         )
 
     }
-    componentWillMount() {
+    componentDidMount() {
         this.getData();
     }
 

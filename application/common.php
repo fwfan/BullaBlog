@@ -10,9 +10,6 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
-
-class ToolFunctions {
-    public function formatResult($data){
-        
-    }
-}
+    function formatResult($result=[]){
+        return json_encode($result);
+    }   

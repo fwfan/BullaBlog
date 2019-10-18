@@ -1,6 +1,8 @@
 <?php
 namespace app\index\controller;
 
+use think\Db;
+
 class Index
 {
     public function index()
@@ -10,8 +12,8 @@ class Index
 
     public function subIndex()
     {
-        $t1 = date('Y-m-d', time());;
-        $data = ['success'=>true, 'result' =>[], 'message'=>''];
-        return json_encode($data) . $t1. date('Y-m-d', time());;
+        $result = Db::query('select * from content');
+        $data = ['success'=>true, 'result' => $result, 'message'=>''];
+        return formatResult($data);
     }
 }
