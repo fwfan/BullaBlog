@@ -3,11 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/jquery": "^3.3.31",
+    "jquery": "^3.4.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-markdown": "^4.2.2",
     "react-router": "^5.1.0",
     "react-router-dom": "^5.1.0",
-    "react-scripts": "3.1.2"
+    "react-scripts": "3.1.2",
+    "react-syntax-highlighter": "^11.0.2",
+    "showdown": "^1.9.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,5 +34,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://127.0.0.12:8088"
 }

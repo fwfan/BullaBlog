@@ -21,3 +21,25 @@
   right: 0px;
   border:1px dashed #000;
 }
+
+.list-item {
+  padding: 12px;
+}
+
+.list-item-tag{
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.list-item-tag-container{
+  display: inline-block;
+  margin-right: 50px;
+}
+
+.list-item-time-container{
+  display: inline-block;
+}
+
+.content-container-header{
+  height: 10px;
+}

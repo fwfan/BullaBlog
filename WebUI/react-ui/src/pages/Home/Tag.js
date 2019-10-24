@@ -9,10 +9,10 @@ class Tag extends Component {
     }
 
     render(){
-        
+        const { tags } = this.props;
         return (
-            <div>
-                <span>技术</span>
+            <div className="list-item-tag-container"> 标签：
+                {tags.map(item => <span key={item} className="list-item-tag">{item}</span>)}
             </div>
         );
     }

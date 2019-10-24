@@ -10,9 +10,12 @@ class Index
         return '<script>window.location.href="http://127.0.0.12:8088/WebUI/"</script>';
     }
 
-    public function subIndex()
+    public function subIndex($start=10, $limit = 5)
     {
-        $result = Db::query('select * from content');
+        $start = (int)$start;
+        $limit = (int)$limit;
+
+        $result = Db::query("select * from content limit ?, ?", [$start, $limit]);
         $data = ['success'=>true, 'result' => $result, 'message'=>''];
         return formatResult($data);
     }

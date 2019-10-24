@@ -6,22 +6,22 @@ class ListItem extends Component {
     constructor(props){
         super (props);
         this.state = {
-
+            
         }
     }
 
     render() {
-        const { title, time, tag, article} = this.props;
+        const { title, time, tags, article_sub} = this.props;
         return (
-            <div>
-                <h5>{title}</h5>
-                <div>{time}</div>
-                <Tag />
-                <Article />
+            <div className="list-item">
+                <h3>{title}</h3>
+                <Tag tags={tags}/>
+                <div className="list-item-time-container">{time}</div>
+                <Article article={article_sub}/>
+                <hr />
             </div>
         );
     }
-
 }
 
 export default ListItem;
