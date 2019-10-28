@@ -3,14 +3,12 @@
   width:4%;
   vertical-align:top;
   display :inline-block;
-  border:1px dashed #000;
 }
 
 .content-container {
   width :71%;
   height :auto;
   display :inline-block;
-  border:1px dashed #000;
 }
 
 .content-container-right {
@@ -19,7 +17,6 @@
   position: fixed;
   top: 80px;
   right: 0px;
-  border:1px dashed #000;
 }
 
 .list-item {

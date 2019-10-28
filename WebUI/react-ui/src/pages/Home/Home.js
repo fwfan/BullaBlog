@@ -45,6 +45,8 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        if(this.state.content.length > 0) return;
+        console.log(this.state.content.length);
         window.addEventListener('scroll', this.scrollHandler);
         this.getData();
     }
@@ -53,15 +55,14 @@ class Home extends Component {
         return (
             <div>
                 <div className="content-container-left" >
-                    <div className="login-button-container">
-                    </div>
+                    <div className="login-button-container"></div>
                 </div>
                 <div className="content-container" >
                     <div className="content-container-header"></div>
                     {this.state.content.map(item => <ListItem key={item.uid} title={item.title} time={item.upload_time} tags={item.tags ? item.tags.split(".") : []} article_sub={item.article_sub} />)}
                 </div>
                 <div className="content-container-right" >
-                    <div className="content-container-right-ajax-test" id="content-container-right-ajax-test">ajaxtest</div>
+                    <div className="content-container-right-ajax-test" id="content-container-right-ajax-test"></div>
                 </div>
             </div>
         );

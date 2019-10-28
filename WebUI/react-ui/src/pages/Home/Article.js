@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import showdown from 'showdown';
 import ReactMarkdown from 'react-markdown';
-import CodeBlock from './CodeBlock';
+import CodeBlock from './CodeBlock.js';
 
 class Article extends Component{
     constructor(props){
@@ -13,12 +12,10 @@ class Article extends Component{
 
     render() {
         const { article} = this.props;
-        let converter = new showdown.Converter();
-        let html = converter.makeHtml(article);
 
         return(
             <div>
-                <ReactMarkdown source={article} escapeHtml={false} renderers={{
+                <ReactMarkdown source={article} renderers={{
                     code: CodeBlock
                 }}/>
             </div>
