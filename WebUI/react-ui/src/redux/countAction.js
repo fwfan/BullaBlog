@@ -5,3 +5,9 @@ export function addCount(){
         type : ADD_COUNT
     }
 }
+
+export function beforeFetch(){
+    return {
+        type : BEFORE_FETCH
+    }
+}

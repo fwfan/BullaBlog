@@ -74,6 +74,13 @@ class Home extends Component {
     }
 }
 
+//获取首页内容
+function fechContent(){
+    return function(dispatch){
+        dispatch();
+    }
+}
+
 // 定义方法mapStateToProps，参数为state，并且返回一个对象，对象内定义需要获取的store内的数据，
 // 由于是使用的countReducer中的数据，所以需要使用state.countReducer.属性名 
 function mapStateToProps(state) {
