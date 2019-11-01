@@ -28,8 +28,8 @@ class App extends Component {
               </ul>
             </div>
           </div>
-          <div className="content-container-top" ></div>
 
+          <div className="content-container-top" ></div>
           <Switch>
             <Route exact path="/">
               <Home />
@@ -51,3 +51,4 @@ class App extends Component {
 }
 
 export default App;
+
