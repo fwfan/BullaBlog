@@ -1,3 +1,5 @@
 
-
-export const ADD_COUNT = 'ADD_COUNT';
+export const BEFORE_FETCH = 'BEFORE_FETCH';
+export const FETCH_FAIL = 'FETCH_FAIL';
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const MODIFY_HOME_PAGENUM = 'MODIFY_HOME_PAGENUM';
