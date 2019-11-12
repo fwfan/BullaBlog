@@ -3,14 +3,16 @@ import './Home.css';
 import ListItem from './ListItem.js';
 import $ from 'jquery';
 import { connect } from 'react-redux';
-import { beforeFetch, failFetch, successFetch } from '../../redux/action.js';
+import { beforeFetch, failFetch, successFetch, modifyPageNum} from '../../redux/action.js';
 import PropTypes from 'prop-types';
 
 
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.pageNum = 0;
+        this.state = {
+            pageNum : 0
+        };
         this.scrollHandler = this.scrollHandler.bind(this);
     }
 
@@ -18,10 +20,10 @@ class Home extends Component {
         let conHeight = $('.content-container').height();
         let winHeight = $(window).height();
         let scrollTop = $(window).scrollTop();
-        console.log('sdsdsdsd');
         if (200 + scrollTop >= conHeight - winHeight){
             console.log('asdfghjkl');
-            this.props.fechContent(this.pageNum);
+            debugger
+            this.props.fechContent(this.props.pageNum);
         }
     }
 
@@ -54,14 +56,13 @@ class Home extends Component {
 // 由于是使用的countReducer中的数据，所以需要使用state.countReducer.属性名 
 function mapStateToProps(state) {
     return {
-        pageNum : state.fetchReducer.pageNum,
+        pageNum: state.pageReducer.pageNum,
         homeContent : state.fetchReducer.homeContent
     }
 }
 
 function mapDispatchToProps(dispatch, props) {
     return {
-        pageNum : dispatch(),
         fechContent: (pageNum)=>{
             // console.log(props);
             // if(props.homeContent){
@@ -69,10 +70,11 @@ function mapDispatchToProps(dispatch, props) {
             // }
             let url = `/public/Index/Index/subIndex?limit=8`;
             let firstPageNum = 8;
+            console.log(props);
             if (pageNum === 0) {
                 url = `/public/Index/Index/subIndex?start=0&limit=${firstPageNum}`
             } else {
-                let start = (this.pageNum - 1) * 5 + firstPageNum;
+                let start = (pageNum - 1) * 5 + firstPageNum;
                 url = `/public/Index/Index/subIndex?start=${start}&limit=5`
             }
             //dispatch(beforeFetch());
@@ -80,7 +82,8 @@ function mapDispatchToProps(dispatch, props) {
                 method: 'GET'
             }).then(res => res.json()).then(
                 (data) => {
-                    this.pageNum++; 
+                    pageNum = pageNum + 1;
+                    dispatch(modifyPageNum(pageNum));
                     dispatch(successFetch(data.result));
                 }
             )
@@ -88,6 +91,7 @@ function mapDispatchToProps(dispatch, props) {
     }
 }
 Home.propTypes = {
+    pageNum: PropTypes.number.isRequired,
     homeContent: PropTypes.array.isRequired,
     fechContent: PropTypes.func.isRequired
 }

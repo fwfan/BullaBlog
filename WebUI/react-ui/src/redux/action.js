@@ -21,6 +21,6 @@ export function successFetch(res) {
 export function modifyPageNum(num) {
     return {
         type: types.MODIFY_HOME_PAGENUM,
-        homeContentPageNum : num
+        pageNum : num
     }
 }
