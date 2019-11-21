@@ -13,9 +13,9 @@ class LoadingTips extends Component {
     getLoadingStringState(index = 0){
         let loadingStringState = '加载中，请稍后... ...';
 
-        if (index == 1) {
+        if (index === 1) {
             loadingStringState = '加载中，请稍后......';
-        } else if (index == 2) {
+        } else if (index === 2) {
             loadingStringState = '加载完毕!'
         } else {
             loadingStringState = '别划拉了，我也是有底线的';

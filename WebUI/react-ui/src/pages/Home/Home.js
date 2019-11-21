@@ -16,6 +16,7 @@ class Home extends Component {
             loadState : 0
         };
         this.pageNum = 0;
+        this.lastScrollTime = 0;
         this.scrollHandler = this.scrollHandler.bind(this);
         this.fetchContent = this.fetchContent.bind(this);
     }
@@ -24,7 +25,10 @@ class Home extends Component {
         let conHeight = $('.content-container').height();
         let winHeight = $(window).height();
         let scrollTop = $(window).scrollTop();
-        if (200 + scrollTop >= conHeight - winHeight){
+        let curTime = new Date();
+        if (150 + scrollTop >= conHeight - winHeight){
+            if(curTime - this.lastScrollTime < 500) return; 
+            this.lastScrollTime = curTime;
             this.fetchContent();
         }
     }
@@ -45,12 +49,12 @@ class Home extends Component {
             method: 'GET'
         }).then(res => res.json()).then(
             (data) => {
-                this.pageNum++;
                 if(data.result.length === 0){
                     this.setState({
                         loadState: 3
                     });
                 }else{
+                    this.pageNum++;
                     this.setState({
                         loadState: 2,
                         homeContent: [...this.state.homeContent, ...data.result]
