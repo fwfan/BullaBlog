@@ -5,13 +5,15 @@ import $ from 'jquery';
 import { connect } from 'react-redux';
 import { beforeFetch, failFetch, successFetch, modifyPageNum} from '../../redux/action.js';
 import PropTypes from 'prop-types';
+import LoadingTips from '../../components/LoadingTips.js';
 
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            homeContent : []
+            homeContent : [],
+            loadState : 0
         };
         this.pageNum = 0;
         this.scrollHandler = this.scrollHandler.bind(this);
@@ -38,15 +40,23 @@ class Home extends Component {
             let start = (this.pageNum - 1) * 5 + firstPageNum;
             url = `/public/Index/Index/subIndex?start=${start}&limit=5`
         }
-
+        this.setState({loadState : 1});
         fetch(url, {
             method: 'GET'
         }).then(res => res.json()).then(
             (data) => {
                 this.pageNum++;
-                this.setState({
-                    homeContent: [...this.state.homeContent, ...data.result]
-               });
+                if(data.result.length === 0){
+                    this.setState({
+                        loadState: 3
+                    });
+                }else{
+                    this.setState({
+                        loadState: 2,
+                        homeContent: [...this.state.homeContent, ...data.result]
+                    });
+                }
+
             }
         )
     }
@@ -66,6 +76,7 @@ class Home extends Component {
                 <div className="content-container" >
                     <div className="content-container-header"></div>
                     {this.state.homeContent.map(item => <ListItem key={item.uid} title={item.title} time={item.upload_time} tags={item.tags ? item.tags.split(".") : []} article_sub={item.article_sub} />)}
+                    <LoadingTips loadState={this.state.loadState}></LoadingTips>
                 </div>
                 <div className="content-container-right" >
                     <div className="content-container-right-ajax-test" id="content-container-right-ajax-test"></div>
