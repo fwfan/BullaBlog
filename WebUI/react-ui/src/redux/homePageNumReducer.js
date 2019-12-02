@@ -9,7 +9,6 @@ const initialHomePageNum = {
 // 第二个参数为action，并return一个state  
 // 并且抛出这个countReducer
 function pageReducer(state = initialHomePageNum, action) {
-    debugger
     switch (action.type) {
         case MODIFY_HOME_PAGENUM:
             return { pageNum: action.pageNum }

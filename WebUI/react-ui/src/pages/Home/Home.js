@@ -5,6 +5,7 @@ import $ from 'jquery';
 import { connect } from 'react-redux';
 import { beforeFetch, failFetch, successFetch, modifyPageNum} from '../../redux/action.js';
 import PropTypes from 'prop-types';
+import Announcement from './Announcement.js';
 import LoadingTips from '../../components/LoadingTips.js';
 
 
@@ -13,9 +14,9 @@ class Home extends Component {
         super(props);
         this.state = {
             homeContent : [],
-            loadState : 0
+            loadState : 0,
+            pageNum : 0
         };
-        this.pageNum = 0;
         this.lastScrollTime = 0;
         this.scrollHandler = this.scrollHandler.bind(this);
         this.fetchContent = this.fetchContent.bind(this);
@@ -54,9 +55,10 @@ class Home extends Component {
                         loadState: 3
                     });
                 }else{
-                    this.pageNum++;
+                    let num = this.state.pageNum + 1;
                     this.setState({
                         loadState: 2,
+                        pageNum: num,
                         homeContent: [...this.state.homeContent, ...data.result]
                     });
                 }
@@ -65,7 +67,14 @@ class Home extends Component {
         )
     }
 
+    componentWillUnmount(){
+        console.log('will Unmount' + this.state.pageNum);
+        window.removeEventListener('scroll', this.scrollHandler);
+    }
+
+
     componentDidMount() {
+        console.log('Did Unmount' + this.state.pageNum);
         window.addEventListener('scroll', this.scrollHandler);
         this.fetchContent();
     }
@@ -75,7 +84,7 @@ class Home extends Component {
         return (
             <div>
                 <div className="content-container-left" >
-                    <div className="login-button-container"></div>
+
                 </div>
                 <div className="content-container" >
                     <div className="content-container-header"></div>
@@ -83,6 +92,7 @@ class Home extends Component {
                     <LoadingTips loadState={this.state.loadState}></LoadingTips>
                 </div>
                 <div className="content-container-right" >
+                    <Announcement />
                     <div className="content-container-right-ajax-test" id="content-container-right-ajax-test"></div>
                 </div>
             </div>
