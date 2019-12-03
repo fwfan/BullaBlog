@@ -7,8 +7,8 @@ class Index
 {
     public function index()
     {
-        //return '<script>window.location.href="http://127.0.0.12:8088/WebUI/"</script>';
-        return '<script>window.location.href="http://127.0.0.1:80/WebUI/"</script>';
+        return '<script>window.location.href="http://127.0.0.12:8088/WebUI/"</script>';
+        //return '<script>window.location.href="http://182.61.5.126:80/WebUI/"</script>';
     }
 
     public function subIndex($start=10, $limit = 5)

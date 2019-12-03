@@ -34,16 +34,15 @@ class Home extends Component {
         }
     }
 
-
     fetchContent() {
-        let url = `/public/Index/Index/subIndex?limit=8`;
+        let url = `/Index/Index/subIndex?limit=8`;
         let firstPageNum = 8;
 
-        if (this.pageNum === 0) {
-            url = `/public/Index/Index/subIndex?start=0&limit=${firstPageNum}`
+        if (this.state.pageNum === 0) {
+            url = `/Index/Index/subIndex?start=0&limit=${firstPageNum}`
         } else {
-            let start = (this.pageNum - 1) * 5 + firstPageNum;
-            url = `/public/Index/Index/subIndex?start=${start}&limit=5`
+            let start = (this.state.pageNum - 1) * 5 + firstPageNum;
+            url = `/Index/Index/subIndex?start=${start}&limit=5`
         }
         this.setState({loadState : 1});
         fetch(url, {
@@ -76,7 +75,8 @@ class Home extends Component {
     componentDidMount() {
         console.log('Did Unmount' + this.state.pageNum);
         window.addEventListener('scroll', this.scrollHandler);
-        this.fetchContent();
+
+        this.fetchContent(0);
     }
 
     render() {

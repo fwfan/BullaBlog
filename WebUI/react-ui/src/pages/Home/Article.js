@@ -11,13 +11,18 @@ class Article extends Component{
     }
 
     render() {
-        const { article} = this.props;
-
+        let { article} = this.props;
+        
+        let detailStyle ={
+            display:'inline-block'
+        }
+        
         return(
             <div>
                 <ReactMarkdown source={article} renderers={{
                     code: CodeBlock
                 }}/>
+                <a style={detailStyle} href={window.location.href+"article" +"?uid=22"} target='_blank'>[详情]</a>
             </div>
         );
     }

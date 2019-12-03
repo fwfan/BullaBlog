@@ -21,10 +21,11 @@
   color: #09d3ac;
 }
 
-.nav-container {
+
+.nav-container-hide {
   position :fixed;
   background-color :#c54b04;
-  height: 80px;
+  height: 0px;
   width : 100%;
   top :0;
   z-index:2;
@@ -33,7 +34,7 @@
   
 .nav {
   float :left;
-  width :50%;
+  width :80%;
   height :100%;
 }
 
@@ -59,12 +60,13 @@
   color: white;
 }
 
-.content-container-top {
-  height: 80px;
-  width: 100%;
+.item-hide {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  cursor: default;
+  pointer-events:none;
 }
-
-
 
 a {
   text-decoration: none;
