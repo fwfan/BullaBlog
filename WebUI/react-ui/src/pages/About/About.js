@@ -1,11 +1,19 @@
 import React, {Component} from 'react';
-
+import ScrollDiv from '../../components/ScrollDiv.js';
 class About extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        }
+    }
+
+
+
     render() {
         return(
             <div>
-                <h2>About</h2>
-                <div></div>
+                <ScrollDiv />
             </div>
         );
     }

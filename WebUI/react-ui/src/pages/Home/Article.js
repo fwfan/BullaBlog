@@ -22,7 +22,7 @@ class Article extends Component{
                 <ReactMarkdown source={article} renderers={{
                     code: CodeBlock
                 }}/>
-                <a style={detailStyle} href={window.location.href+"article" +"?uid=22"} target='_blank'>[详情]</a>
+                <a style={detailStyle} href={window.location.href+"article" +"?uid=22"} target='_blank'>[查看详情]</a>
             </div>
         );
     }
