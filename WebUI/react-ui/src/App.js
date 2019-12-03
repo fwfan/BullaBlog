@@ -20,7 +20,7 @@ class App extends Component {
         navHide: true
       });
     }
-    window.alert('new window' + window.location.href);
+    //window.alert('new window' + window.location.href);
 
     window.addEventListener('hashchange', () => {
       if (window.location.hash.indexOf('article') > 0) {
