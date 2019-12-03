@@ -22,6 +22,7 @@ class App extends Component {
     }
     //window.alert('new window' + window.location.href);
 
+    
     window.addEventListener('hashchange', () => {
       if (window.location.hash.indexOf('article') > 0) {
         this.setState({
