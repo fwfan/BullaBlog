@@ -10,6 +10,7 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
-    function formatResult($result=[]){
-        return json_encode($result);
+    function formatResult($success=true, $result=[], $message=''){
+        $data = ['success' => $success, 'result' => $result, 'message' => $message];
+        return json_encode($data);
     }   

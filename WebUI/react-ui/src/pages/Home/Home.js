@@ -88,7 +88,7 @@ class Home extends Component {
                 </div>
                 <div className="content-container" >
                     <div className="content-container-header"></div>
-                    {this.state.homeContent.map(item => <ListItem key={item.uid} title={item.title} time={item.upload_time} tags={item.tags ? item.tags.split(".") : []} article_sub={item.article_sub} detailA={true} />)}
+                    {this.state.homeContent.map(item => <ListItem key={item.uid} title={item.title} time={item.upload_time} tags={item.tags ? item.tags.split(".") : []} uid={item.uid} article_sub={item.article_sub} detailA={true} />)}
                     <LoadingTips loadState={this.state.loadState}></LoadingTips>
                 </div>
                 <div className="content-container-right" >

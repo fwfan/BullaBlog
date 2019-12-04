@@ -11,9 +11,17 @@ class ListItem extends Component {
     }
 
     render() {
-        const { title, time, tags, article_sub, detailA } = this.props;
+        const { title, time, tags, article_sub, detailA, uid } = this.props;
+        console.log(uid);
+        
         let detailStyle = detailA ? {
             display: 'inline-block'
+        } : {
+                display: 'none'
+            }
+
+        let hrStyle = detailA ? {
+           
         } : {
                 display: 'none'
             }
@@ -23,8 +31,8 @@ class ListItem extends Component {
                 <Tag tags={tags} />
                 <div className="list-item-time-container">{time}</div>
                 <Article article={article_sub} />
-                <a style={detailStyle} href={window.location.href + "article" + "?uid=22"} target='_blank'>[查看详情]</a>
-                <hr />
+                <a style={detailStyle} href={window.location.href + `article?uid=${uid}`} target='_blank'>[查看详情]</a>
+                <hr style={hrStyle}/>
             </div>
         );
     }

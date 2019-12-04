@@ -17,7 +17,12 @@ class Index
         $limit = (int)$limit;
 
         $result = Db::query("select * from content limit ?, ?", [$start, $limit]);
-        $data = ['success'=>true, 'result' => $result, 'message'=>''];
-        return formatResult($data);
+        return formatResult(true, $result, '');
+    }
+
+    public function getArticle($uid=0){
+        $uid = (int)$uid;
+        $result = Db::query("select * from content where uid=?", [$uid]);
+        return formatResult(true, $result, '');
     }
 }
