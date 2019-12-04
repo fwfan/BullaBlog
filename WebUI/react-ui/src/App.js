@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home.js";
 import About from "./pages/About/About.js";
 import Life from "./pages/Life/Life.js";
+import ArticleCon from "./pages/Article/ArticleCon.js";
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route'
 
 class App extends Component {
@@ -40,12 +41,13 @@ class App extends Component {
   render() {
     let navStyle = {
       position: 'fixed',
-      backgroundColor: '#c54b04',
-      height: '80px',
+      backgroundColor: '#15436b',
+      height: '70px',
       width: '100%',
       top: 0,
       zIndex: 2,
-      textAlign: 'center'
+      textAlign: 'center',
+      boxShadow: '0px 2px 2px #888888'
     }
 
     let navHideStyle = {
@@ -53,11 +55,11 @@ class App extends Component {
     }
 
     let contentContainerTopStyle = {
-      height: '80px',
+      height: '70px',
       width: '100%'
     }
     let contentContainerTopHideStyle = {
-      height: '20px',
+      height: '0px',
       width: '100%'
     }
 
@@ -77,7 +79,7 @@ class App extends Component {
                   <Link to="/life">杂碎</Link>
                 </li> */}
                 <li href="/" className="tab-head-about tab-head" >
-                  <Link to="/about">关于</Link>
+                  <Link to="/about">更新记录</Link>
                 </li>
                 <li href="/" className="tab-head-about tab-head" >
                   <Link className="item-hide" to="/article">Article</Link>
@@ -101,7 +103,7 @@ class App extends Component {
               <About />
             </Route>
             <Route path="/Article">
-              <About />
+              <ArticleCon />
             </Route>
           </CacheSwitch>
         </Router>

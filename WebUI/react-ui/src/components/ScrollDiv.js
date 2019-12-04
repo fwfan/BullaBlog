@@ -28,51 +28,13 @@ class ScrollDiv extends Component {
             border : 'black',
             overflow :'auto',
             overflowX: 'hidden',
-            wordBreak: 'break-all'
+            wordBreak: 'break-all',
+            
         }
 
         return (
             <div className='scroll-div' style={containerStyle}>
-                <div>deded</div>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfdjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjqqqqqqqqWWQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
-                <p>dfdfdffdfd</p>
+                
             </div>
         );
     }

@@ -21,17 +21,6 @@
   color: #09d3ac;
 }
 
-
-.nav-container-hide {
-  position :fixed;
-  background-color :#c54b04;
-  height: 0px;
-  width : 100%;
-  top :0;
-  z-index:2;
-  text-align :center;
-  }
-  
 .nav {
   float :left;
   width :80%;
@@ -44,16 +33,16 @@
   width :100%;
   margin :0 0 0 0;
   padding :0 0 0 0;
-  line-height :80px;
+  line-height :70px;
   list-style :none;
   font-family: Arial, Helvetica, sans-serif ;
-  font-size : 20px;
+  font-size : 17px;
 }
 
 .nav li {
-  width : 50px;
+  width : 80px;
   text-align : center;
-  margin-left: 100px;
+  margin-left: 50px;
   display :inline-block;
 }
 .nav a {

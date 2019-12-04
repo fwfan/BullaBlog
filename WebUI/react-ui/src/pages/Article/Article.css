@@ -1,0 +1,19 @@
+.article-con {
+    padding: 20px;
+}
+
+.article-con-article {
+    display: inline-block;
+    height: auto;
+    width: 70%;
+    border: 1px dashed #000;
+}
+
+.article-con-relate {
+    position: fixed;
+    display: inline-block;
+    right: 0px;
+    height: 100%;
+    width: 30%;
+    border: 1px dashed #000;
+}
