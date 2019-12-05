@@ -80,9 +80,8 @@ class Home extends Component {
     }
 
     render() {
-       
         return (
-            <div>
+            <div >
                 <div className="content-container-left" >
 
                 </div>
@@ -93,7 +92,6 @@ class Home extends Component {
                 </div>
                 <div className="content-container-right" >
                     <Announcement />
-                    <div className="content-container-right-ajax-test" id="content-container-right-ajax-test"></div>
                 </div>
             </div>
         );

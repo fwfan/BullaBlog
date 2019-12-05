@@ -9,18 +9,24 @@
   width :71%;
   height :auto;
   display :inline-block;
+
 }
 
 .content-container-right {
   height: 100%;
-  width: 23%;
+  width: 24%;
   position: fixed;
-  top: 80px;
+  top: 60px;
   right: 0px;
+  bottom: 10px;
+  margin: 10px;
 }
 
 .list-item {
   padding: 12px;
+  opacity: 1;
+  margin: 10px;
+  background-color: white;
 }
 
 .list-item-tag{
@@ -31,13 +37,34 @@
 .list-item-tag-container{
   display: inline-block;
   margin-right: 50px;
+  border: 2px solid  green;
+  padding: 0px 0px 0px 5px;
+  border-width: 0px 0px 0px 5px;
+  color: grey;
 }
 
 .list-item-time-container{
   display: inline-block;
+  color: grey;
 }
 
 .content-container-header{
-  height: 10px;
+  
 }
+
+.list-item-a:visited {
+  color: green;
+}
+
+.list-item-a:link {
+  color: green;
+}
+
+.announcement-visitor_number{
+  border: 2px solid  green;
+  padding: 0px 0px 0px 5px;
+  border-width: 0px 0px 0px 5px;
+}
+
+
 

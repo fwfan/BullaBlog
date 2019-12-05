@@ -42,12 +42,12 @@ class App extends Component {
     let navStyle = {
       position: 'fixed',
       backgroundColor: '#15436b',
-      height: '70px',
+      height: '60px',
       width: '100%',
       top: 0,
       zIndex: 2,
       textAlign: 'center',
-      boxShadow: '0px 2px 2px #888888'
+      boxShadow: '0px 1px 1px #888888'
     }
 
     let navHideStyle = {
@@ -55,7 +55,7 @@ class App extends Component {
     }
 
     let contentContainerTopStyle = {
-      height: '70px',
+      height: '60px',
       width: '100%'
     }
     let contentContainerTopHideStyle = {
@@ -70,7 +70,7 @@ class App extends Component {
             <div className="nav">
               <ul>
                 <li href="/" className="tab-head-home tab-head" >
-                  <Link to="/">首页</Link>
+                  <Link to="/">博客</Link>
                 </li>
                 {/* <li href="/" className="tab-head-home tab-head" >
                   <Link to="/study">学习</Link>
@@ -79,7 +79,7 @@ class App extends Component {
                   <Link to="/life">杂碎</Link>
                 </li> */}
                 <li href="/" className="tab-head-about tab-head" >
-                  <Link to="/about">更新记录</Link>
+                  <Link to="/about">关于</Link>
                 </li>
                 <li href="/" className="tab-head-about tab-head" >
                   <Link className="item-hide" to="/article">Article</Link>

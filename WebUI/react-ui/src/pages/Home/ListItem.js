@@ -15,7 +15,8 @@ class ListItem extends Component {
         console.log(uid);
         
         let detailStyle = detailA ? {
-            display: 'inline-block'
+            display: 'inline-block',
+
         } : {
                 display: 'none'
             }
@@ -31,8 +32,8 @@ class ListItem extends Component {
                 <Tag tags={tags} />
                 <div className="list-item-time-container">{time}</div>
                 <Article article={article_sub} />
-                <a style={detailStyle} href={window.location.href + `article?uid=${uid}`} target='_blank'>[查看详情]</a>
-                <hr style={hrStyle}/>
+                <a className="list-item-a" style={detailStyle} href={window.location.href + `article?uid=${uid}`} target='_blank'>[查看详情]</a>
+               
             </div>
         );
     }
