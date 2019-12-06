@@ -6,7 +6,7 @@ class ListItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            htmlCode :''
         }
     }
 
@@ -19,21 +19,28 @@ class ListItem extends Component {
 
         } : {
                 display: 'none'
-            }
+            };
 
-        let hrStyle = detailA ? {
+        let ListItemStyle = detailA ? {
            
         } : {
-                display: 'none'
-            }
+                minHeight: '800px'
+        }
+        
+        let demoStyle = {
+            display: 'inline-block',
+            marginLeft :'10px'
+        }
+        
         return (
-            <div className="list-item">
-                <h3>{title}</h3>
+            <div className="list-item" style={ListItemStyle}>
+                <h2>{title}</h2>
                 <Tag tags={tags} />
                 <div className="list-item-time-container">{time}</div>
+                <div>{this.state.htmlCode}</div>
                 <Article article={article_sub} />
                 <a className="list-item-a" style={detailStyle} href={window.location.href + `article?uid=${uid}`} target='_blank'>[查看详情]</a>
-               
+                {/* <a className="list-item-a" style={demoStyle} href={window.location.href + `article?uid=${uid}`} target='_blank'>[查看Demo]</a> */}
             </div>
         );
     }

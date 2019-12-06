@@ -51,7 +51,8 @@ class App extends Component {
     }
 
     let navHideStyle = {
-      height: '0px'
+      height: '0px',
+      display : 'none'
     }
 
     let contentContainerTopStyle = {
@@ -90,7 +91,7 @@ class App extends Component {
 
           <div style={this.state.navHide ? contentContainerTopHideStyle : contentContainerTopStyle} className="content-container-top" ></div>
           <CacheSwitch>
-            <CacheRoute exact saveScrollPosition={true} path="/">
+            <CacheRoute exact saveScrollPosition={true} style={contentContainerTopHideStyle} path="/">
               <Home />
             </CacheRoute >
             {/* <Route path="/study">

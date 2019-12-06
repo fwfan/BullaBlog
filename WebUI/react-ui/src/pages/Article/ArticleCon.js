@@ -21,7 +21,7 @@ class ArticleCon extends Component{
         if (str.split("?")[1] != undefined && str.split("=")[1] != undefined) {
             parastr = str.split("?")[1];
             parastr = decodeURIComponent(parastr);
-            console.log(parastr);
+
             var arr = []
             arr = parastr.split("&");
 
@@ -60,7 +60,7 @@ class ArticleCon extends Component{
                <div className='article-con-article'>
                     {this.state.article.map(item => <ListItem key={item.uid} title={item.title} time={item.upload_time} tags={item.tags ? item.tags.split(".") : []} uid={item.uid} article_sub={item.article} />)}
                </div>
-               <div className='article-con-relate'>sfdf</div>
+               {/* <div className='article-con-relate'>sfdf</div> */}
             </div>
         );
     }

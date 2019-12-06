@@ -5,12 +5,36 @@ class Announcement extends Component {
     constructor(props){
         super(props);
         this.state ={
-
+            visitorNumber : 0,
+            getVisitorNumUrl: '/Index/Index/getVisitorNum'
         }
+
+        this.fetchVisitorNumber = this.fetchVisitorNumber.bind(this);
+    }
+
+    componentDidMount(){
+        this.fetchVisitorNumber();
+    }
+
+    fetchVisitorNumber(){
+        let url = '/Index/Index/getVisitorNum';
+
+        fetch(url, {
+            method: 'GET'
+        }).then(res => res.json()).then(
+            (data) => {
+                if (data.result.length === 0) {
+
+                } else {
+                    this.setState({
+                        visitorNumber: data.result[0]['sumNum']
+                    });
+                }
+            }
+        )
     }
 
     render(){
-
 
         let contentStyle = {
             width :'100%',
@@ -21,7 +45,7 @@ class Announcement extends Component {
 
         return (
             <div style={contentStyle}>
-               <div className="announcement-visitor_number">今日访问人数：{2}</div>
+               <div className="announcement-visitor_number">今日访问人数：{this.state.visitorNumber}</div>
             </div>
         );
     }

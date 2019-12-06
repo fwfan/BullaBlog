@@ -1,19 +1,17 @@
 .article-con {
-    padding: 20px;
+    padding: 10px;
+    height: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction : column
 }
 
 .article-con-article {
-    display: inline-block;
-    height: auto;
-    width: 70%;
+    width: 85%;
     border: 1px dashed #000;
 }
 
 .article-con-relate {
-    position: fixed;
-    display: inline-block;
-    right: 0px;
-    height: 100%;
-    width: 30%;
-    border: 1px dashed #000;
+    width: 85%;
 }
