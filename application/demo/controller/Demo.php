@@ -1,11 +1,11 @@
 <?php
 namespace app\demo\controller;
 
-class Demo
+class Demo extends \think\Controller
 {
     public function demo()
     {
-        return 'dfdfdfdfdfd';
+        return $this->fetch('demo');
     }
 
     
