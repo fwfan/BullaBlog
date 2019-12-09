@@ -44,7 +44,7 @@ class Announcement extends Component {
         }
 
         return (
-            <div style={contentStyle}>
+            <div className="announcement-div" style={contentStyle}>
                <div className="announcement-visitor_number">今日访问人数：{this.state.visitorNumber}</div>
             </div>
         );

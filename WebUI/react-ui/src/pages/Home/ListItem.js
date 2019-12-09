@@ -26,6 +26,8 @@ class ListItem extends Component {
         } : {
                 minHeight: '800px'
         }
+
+        let ListItemClassName = detailA ? "list-item" : "list-item-no-detail"
         
         let demoStyle = {
             display: 'inline-block',
@@ -33,7 +35,7 @@ class ListItem extends Component {
         }
         
         return (
-            <div className="list-item" style={ListItemStyle}>
+            <div className={ListItemClassName} style={ListItemStyle}>
                 <h2>{title}</h2>
                 <Tag tags={tags} />
                 <div className="list-item-time-container">{time}</div>

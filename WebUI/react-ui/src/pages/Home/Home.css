@@ -1,12 +1,12 @@
 .content-container-left {
   height: 100%;
-  width:4%;
+  width:3%;
   vertical-align:top;
   display :inline-block;
 }
 
 .content-container {
-  width :71%;
+  width :70%;
   height :auto;
   display :inline-block;
 
@@ -17,16 +17,29 @@
   width: 24%;
   position: fixed;
   top: 60px;
-  right: 0px;
+  right: 20px;
   bottom: 10px;
   margin: 10px;
 }
 
-.list-item {
+.list-item{
+  padding: 12px;
+  opacity: 1;
+  transition: box-shadow 0.5s;
+  -webkit-transition :box-shadow 0.5s;
+  margin: 10px;
+  background-color: white;
+}
+
+.list-item-no-detail{
   padding: 12px;
   opacity: 1;
   margin: 10px;
   background-color: white;
+}
+
+.list-item:hover {
+  box-shadow: 1px 1px 1px green, -1px -1px 1px green, 1px -1px 1px green, -1px 1px 1px green;
 }
 
 .list-item-tag{
@@ -67,4 +80,12 @@
 }
 
 
+.announcement-div {
+  transition: box-shadow 0.5s;
+  -webkit-transition :box-shadow 0.5s;
+}
+
+.announcement-div:hover {
+  box-shadow: 1px 1px 1px green, -1px -1px 1px green, 1px -1px 1px green, -1px 1px 1px green;
+}
 
