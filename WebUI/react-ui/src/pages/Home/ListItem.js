@@ -11,10 +11,9 @@ class ListItem extends Component {
     }
 
     render() {
-        const { title, time, tags, article_sub, detailA, uid, demoUrl, useDemoUrl} = this.props;
-        console.log(uid);
+        const { title, time, tags, article_sub, detailA, uid, demoUrl, useDemoUrl, content_type} = this.props;
         
-        let detailStyle = detailA ? {
+        let detailStyle = detailA && content_type ? {
             display: 'inline-block',
 
         } : {
