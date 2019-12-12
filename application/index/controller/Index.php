@@ -17,7 +17,7 @@ class Index
         $start = (int)$start;
         $limit = (int)$limit;
 
-        $result = Db::query("select * from content limit ?, ?", [$start, $limit]);
+        $result = Db::query("select * from content order by uid desc limit ?, ?", [$start, $limit]);
         return formatResult(true, $result, '');
     }
 
