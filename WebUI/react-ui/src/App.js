@@ -41,13 +41,13 @@ class App extends Component {
   render() {
     let navStyle = {
       position: 'fixed',
-      backgroundColor: '#15436b',
+      backgroundColor: 'rgb(14, 55, 63)',
       height: '60px',
       width: '100%',
       top: 0,
       zIndex: 2,
       textAlign: 'center',
-      boxShadow: '0px 1px 1px #888888'
+      boxShadow: '0px 1px 1px rgb(14, 55, 63)'
     }
 
     let navHideStyle = {

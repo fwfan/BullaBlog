@@ -29,6 +29,7 @@
   -webkit-transition :box-shadow 0.5s;
   margin: 10px;
   background-color: white;
+  border-radius: 2px;
 }
 
 .list-item-no-detail{
@@ -36,6 +37,7 @@
   opacity: 1;
   margin: 10px;
   background-color: white;
+  border-radius: 2px;
 }
 
 .list-item:hover {
@@ -65,12 +67,23 @@
   
 }
 
+.list-item-a {
+  background-color: green;
+  width: 90px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  border: rgb(20, 66, 20);
+  border-width: 1px;
+  border-radius: 2px;
+}
+
 .list-item-a:visited {
-  color: green;
+  color: white;
 }
 
 .list-item-a:link {
-  color: green;
+  color: white;
 }
 
 .announcement-visitor_number{
@@ -83,9 +96,11 @@
 .announcement-div {
   transition: box-shadow 0.5s;
   -webkit-transition :box-shadow 0.5s;
+  border-radius: 2px;
 }
 
 .announcement-div:hover {
+  border-radius: 2px;
   box-shadow: 1px 1px 1px green, -1px -1px 1px green, 1px -1px 1px green, -1px 1px 1px green;
 }
 
