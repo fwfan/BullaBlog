@@ -33,7 +33,7 @@
 }
 
 .list-item-no-detail{
-  padding: 12px;
+  padding: 10px 60px 60px 60px;
   opacity: 1;
   margin: 10px;
   background-color: white;
@@ -70,8 +70,9 @@
 .list-item-a {
   background-color: green;
   width: 90px;
-  height: 28px;
-  line-height: 28px;
+  height: 24px;
+  font-size: 14px;
+  line-height: 24px;
   text-align: center;
   border: rgb(20, 66, 20);
   border-width: 1px;

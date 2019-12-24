@@ -54,7 +54,7 @@ class ListItem extends Component {
                 <div className="list-item-time-container">{time}</div>
                 <iframe src={demoUrlBak} style={demoStyle}></iframe>
                 <Article article={article_sub} />
-                <a className="list-item-a" style={detailStyle} href={window.location.href + `article?uid=${uid}`} target='_blank'>查看详情</a>
+                <a className="list-item-a" style={detailStyle} href={window.location.href + `article?uid=${uid}`} target='_blank'>阅读全文</a>
                 <a className="list-item-a" style={observeDemoA} href={window.origin + demoUrlBak} target='_blank'>查看Demo</a>
                 
             </div>
