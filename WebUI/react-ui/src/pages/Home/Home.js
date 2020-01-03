@@ -7,6 +7,7 @@ import { beforeFetch, failFetch, successFetch, modifyPageNum} from '../../redux/
 import PropTypes from 'prop-types';
 import Announcement from './Announcement.js';
 import LoadingTips from '../../components/LoadingTips.js';
+import AuthorInfo from '../../components/AuthorInfo.js';
 
 
 class Home extends Component {
@@ -93,6 +94,7 @@ class Home extends Component {
                 </div>
                 <div className="content-container-right" >
                     <Announcement />
+                    <AuthorInfo />
                 </div>
             </div>
         );

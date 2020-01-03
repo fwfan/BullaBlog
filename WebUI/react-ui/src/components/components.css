@@ -1,3 +1,87 @@
 .scroll-div::-webkit-scrollbar {
     display:none
 }
+
+.author-div {
+    height: 400px;
+    width: 100%;
+    display: inline-block;
+    background-color: white;
+    padding: 10px 10px 10px 10px;
+    margin-top: 15px;
+    border-radius: 2px;
+	word-break: break-all; 
+    word-wrap: break-word;
+    position: relative;
+}
+
+
+
+.roll-item1 {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-width: 2px;
+    border-color: tomato;
+    border-style: dashed;
+    bottom: 0px;
+    left: -15px;
+    transition: box-shadow 0.5s;
+    -webkit-transition :box-shadow 0.5s;
+}
+
+.roll-item2 {
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    border-width: 2px;
+    border-color: tomato;
+    border-style: dashed;
+    bottom: 0px;
+    left: 28%;
+    transition: box-shadow 0.5s;
+    -webkit-transition :box-shadow 0.5s;
+}
+
+.roll-item3 {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    border-width: 2px;
+    border-color: tomato;
+    border-style: dashed;
+    bottom: 0px;
+    left: 39%;
+    transition: box-shadow 0.5s;
+    -webkit-transition :box-shadow 0.5s;
+}
+
+.roll-item4 {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    border-width: 2px;
+    border-color: tomato;
+    border-style: dashed;
+    bottom: 0px;
+    left: 60%;
+    transition: box-shadow 0.5s;
+    -webkit-transition :box-shadow 0.5s;
+}
+
+.roll-item5 {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    border-width: 2px;
+    border-color: tomato;
+    border-style: dashed;
+    bottom: 0px;
+    left: 90%;
+    transition: box-shadow 0.5s;
+    -webkit-transition :box-shadow 0.5s;
+}
+
+.roll-div .roll-item:nth-child(3n) {
+    
+}
