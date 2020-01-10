@@ -12,7 +12,10 @@ class AuthorInfo extends Component {
     render() {
         return (
             <div className="author-div announcement-div">
-
+                客户的思路有时候真的很清奇。
+                <br />
+                <br />
+                手机APP天天给用户发通知，真的很烦。
                 <div className="roll-div">
                     <div className="roll-item1 roll-item"></div>
                     <div className="roll-item2 roll-item"></div>

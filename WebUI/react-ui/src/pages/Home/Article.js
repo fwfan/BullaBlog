@@ -15,7 +15,7 @@ class Article extends Component{
         
         return(
             <div>
-                <ReactMarkdown source={article} renderers={{
+                <ReactMarkdown source={article} escapeHtml={false} renderers={{
                     code: CodeBlock
                 }}/>
             </div>
