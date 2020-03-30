@@ -7,7 +7,7 @@ import { beforeFetch, failFetch, successFetch, modifyPageNum} from '../../redux/
 import PropTypes from 'prop-types';
 import Announcement from './Announcement.js';
 import LoadingTips from '../../components/LoadingTips.js';
-import AuthorInfo from '../../components/AuthorInfo.js';
+import UserMood from '../../components/UserMood.js';
 
 
 class Home extends Component {
@@ -64,17 +64,15 @@ class Home extends Component {
                 }
 
             }
-        )
+        );
     }
 
     componentWillUnmount(){
-        console.log('will Unmount' + this.state.pageNum);
         window.removeEventListener('scroll', this.scrollHandler);
     }
 
 
     componentDidMount() {
-        console.log('Did Unmount' + this.state.pageNum);
         window.addEventListener('scroll', this.scrollHandler);
 
         this.fetchContent(0);
@@ -94,7 +92,7 @@ class Home extends Component {
                 </div>
                 <div className="content-container-right" >
                     <Announcement />
-                    <AuthorInfo />
+                    <UserMood />
                 </div>
             </div>
         );

@@ -94,14 +94,5 @@
 }
 
 
-.announcement-div {
-  transition: box-shadow 0.5s;
-  -webkit-transition :box-shadow 0.5s;
-  border-radius: 2px;
-}
 
-.announcement-div:hover {
-  border-radius: 2px;
-  box-shadow: 1px 1px 1px green, -1px -1px 1px green, 1px -1px 1px green, -1px 1px 1px green;
-}
 

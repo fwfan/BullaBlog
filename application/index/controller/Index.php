@@ -2,6 +2,8 @@
 namespace app\index\controller;
 
 use think\Db;
+use think\Request as ThinkRequest;
+use think\Request;
 
 class Index
 {
@@ -49,5 +51,30 @@ class Index
     }
 
 
+    //获取心情
+    public function userMood (Request $request) {
+        if($request->isGet()){
+            $result = Db::query('select * from mood ORDER BY submitTime desc limit 2');
+            if($result){
+                return formatResult(true, $result, '');
+            }else{
+                return formatResult(false, $result, '');
+            }
+            
+        }
+
+        if($request->isPost()){
+            $visitorIp = (string) getVisitorIp();
+            $areaValue = $request->param('editMood');
+            $time = time();
+            $result = Db::execute('insert into mood values (?, inet_aton(?), ?)', [$areaValue, $visitorIp, $time]);
+
+            if ($result) {
+                return formatResult(true, $result, '');
+            } else {
+                return formatResult(false, $result, '');
+            }
+        }
+    }
 
 }

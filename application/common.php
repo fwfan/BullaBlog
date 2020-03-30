@@ -12,7 +12,7 @@
 // 应用公共文件
     function formatResult($success=true, $result=[], $message=''){
         $data = ['success' => $success, 'result' => $result, 'message' => $message];
-        return json_encode($data);
+        return json_encode($data,true);
     }
 
     //获取客户端访问IP

@@ -41,6 +41,7 @@ class Announcement extends Component {
             height : '300px',
             backgroundColor : 'white',
             padding :'10px 10px 10px 10px',
+            borderRadius: '2px'
         }
 
         return (
