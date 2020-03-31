@@ -1,296 +1,315 @@
 .scroll-div::-webkit-scrollbar {
-    display:none
+  display: none;
 }
 
-
-
 .author-div {
-    height: 250px;
-    width: 100%;
-    display: inline-block;
-    background-color: white;
-    padding: 10px 10px 10px 10px;
-    margin-top: 15px;
-    border-radius: 2px;
-    word-break: break-all;
-    word-wrap: break-word;
-    position: absolute;
-    border-radius: 2px ;
-    font-size: 18px;
-    -webkit-border-radius: 2px ;
-    -moz-border-radius: 2px ;
-    -ms-border-radius: 2px ;
-    -o-border-radius: 2px ;
+  height: 250px;
+  width: 100%;
+  display: inline-block;
+  background-color: white;
+  padding: 10px 10px 10px 10px;
+  margin-top: 15px;
+  border-radius: 2px;
+  word-break: break-all;
+  word-wrap: break-word;
+  position: absolute;
+  border-radius: 2px;
+  font-size: 18px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
 }
 
 .roll-item {
-    border-radius: 100px;
-
+  border-radius: 100px;
 }
 
 .roll-item1 {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    border-width: 1px;
-    border-color: grey;
-    border-style: solid;
-    bottom: 0px;
-    left: 5px;
-    animation: myfirst 5.5s;
-    -moz-animation: myfirst 5.5s;	/* Firefox */
-    -webkit-animation: myfirst 5.5s;	/* Safari 和 Chrome */
-    -o-animation: myfirst 5.5s;	/* Opera */
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-width: 1px;
+  border-color: grey;
+  border-style: solid;
+  bottom: 0px;
+  left: 5px;
+  animation: myfirst 5.5s;
+  -moz-animation: myfirst 5.5s; /* Firefox */
+  -webkit-animation: myfirst 5.5s; /* Safari 和 Chrome */
+  -o-animation: myfirst 5.5s; /* Opera */
 
-    animation-timing-function: linear;
-    -moz-animation-timing-function: linear;	/* Firefox */
-    -webkit-animation-timing-function: linear;	/* Safari 和 Chrome */
-    -o-animation-timing-function: linear;	/* Opera */
+  animation-timing-function: linear;
+  -moz-animation-timing-function: linear; /* Firefox */
+  -webkit-animation-timing-function: linear; /* Safari 和 Chrome */
+  -o-animation-timing-function: linear; /* Opera */
 
-    animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;	/* Firefox */
-    -webkit-animation-iteration-count: infinite;	/* Safari 和 Chrome */
-    -o-animation-iteration-count: infinite;	/* Opera */
+  animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite; /* Firefox */
+  -webkit-animation-iteration-count: infinite; /* Safari 和 Chrome */
+  -o-animation-iteration-count: infinite; /* Opera */
 }
 
 .roll-item2 {
-    width: 5px;
-    height: 5px;
-    position: absolute;
-    border-width: 1px;
-    border-color: grey;
-    border-style: solid;
-    bottom: 0px;
-    left: 28%;
-    animation: myfirst 5s;
-    -moz-animation: myfirst 5s;	/* Firefox */
-    -webkit-animation: myfirst 5s;	/* Safari 和 Chrome */
-    -o-animation: myfirst 5s;	/* Opera */
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  border-width: 1px;
+  border-color: grey;
+  border-style: solid;
+  bottom: 0px;
+  left: 28%;
+  animation: myfirst 5s;
+  -moz-animation: myfirst 5s; /* Firefox */
+  -webkit-animation: myfirst 5s; /* Safari 和 Chrome */
+  -o-animation: myfirst 5s; /* Opera */
 
-    animation-timing-function: linear;
-    -moz-animation-timing-function: linear;	/* Firefox */
-    -webkit-animation-timing-function: linear;	/* Safari 和 Chrome */
-    -o-animation-timing-function: linear;	/* Opera */
+  animation-timing-function: linear;
+  -moz-animation-timing-function: linear; /* Firefox */
+  -webkit-animation-timing-function: linear; /* Safari 和 Chrome */
+  -o-animation-timing-function: linear; /* Opera */
 
-    animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;	/* Firefox */
-    -webkit-animation-iteration-count: infinite;	/* Safari 和 Chrome */
-    -o-animation-iteration-count: infinite;	/* Opera */
+  animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite; /* Firefox */
+  -webkit-animation-iteration-count: infinite; /* Safari 和 Chrome */
+  -o-animation-iteration-count: infinite; /* Opera */
 }
 
 .roll-item3 {
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    border-width: 1px;
-    border-color: grey;
-    border-style: solid;
-    bottom: 0px;
-    left: 39%;
-    animation: myfirst 6s;
-    -moz-animation: myfirst 6s;	/* Firefox */
-    -webkit-animation: myfirst 6s;	/* Safari 和 Chrome */
-    -o-animation: myfirst 6s;	/* Opera */
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  border-width: 1px;
+  border-color: grey;
+  border-style: solid;
+  bottom: 0px;
+  left: 39%;
+  animation: myfirst 6s;
+  -moz-animation: myfirst 6s; /* Firefox */
+  -webkit-animation: myfirst 6s; /* Safari 和 Chrome */
+  -o-animation: myfirst 6s; /* Opera */
 
-    animation-timing-function: linear;
-    -moz-animation-timing-function: linear;	/* Firefox */
-    -webkit-animation-timing-function: linear;	/* Safari 和 Chrome */
-    -o-animation-timing-function: linear;	/* Opera */
+  animation-timing-function: linear;
+  -moz-animation-timing-function: linear; /* Firefox */
+  -webkit-animation-timing-function: linear; /* Safari 和 Chrome */
+  -o-animation-timing-function: linear; /* Opera */
 
-    animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;	/* Firefox */
-    -webkit-animation-iteration-count: infinite;	/* Safari 和 Chrome */
-    -o-animation-iteration-count: infinite;	/* Opera */
+  animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite; /* Firefox */
+  -webkit-animation-iteration-count: infinite; /* Safari 和 Chrome */
+  -o-animation-iteration-count: infinite; /* Opera */
 }
 
 .roll-item4 {
-    width: 18px;
-    height: 18px;
-    position: absolute;
-    border-width: 1px;
-    border-color: grey;
-    border-style: solid;
-    bottom: 0px;
-    left: 60%;
-    animation: myfirst 3.7s;
-    -moz-animation: myfirst 3.7s;	/* Firefox */
-    -webkit-animation: myfirst 3.7s;	/* Safari 和 Chrome */
-    -o-animation: myfirst 3.7s;	/* Opera */
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  border-width: 1px;
+  border-color: grey;
+  border-style: solid;
+  bottom: 0px;
+  left: 60%;
+  animation: myfirst 3.7s;
+  -moz-animation: myfirst 3.7s; /* Firefox */
+  -webkit-animation: myfirst 3.7s; /* Safari 和 Chrome */
+  -o-animation: myfirst 3.7s; /* Opera */
 
-    animation-timing-function: linear;
-    -moz-animation-timing-function: linear;	/* Firefox */
-    -webkit-animation-timing-function: linear;	/* Safari 和 Chrome */
-    -o-animation-timing-function: linear;	/* Opera */
+  animation-timing-function: linear;
+  -moz-animation-timing-function: linear; /* Firefox */
+  -webkit-animation-timing-function: linear; /* Safari 和 Chrome */
+  -o-animation-timing-function: linear; /* Opera */
 
-    animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;	/* Firefox */
-    -webkit-animation-iteration-count: infinite;	/* Safari 和 Chrome */
-    -o-animation-iteration-count: infinite;	/* Opera */
+  animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite; /* Firefox */
+  -webkit-animation-iteration-count: infinite; /* Safari 和 Chrome */
+  -o-animation-iteration-count: infinite; /* Opera */
 }
 
 .roll-item5 {
-    width: 8px;
-    height: 8px;
-    position: absolute;
-    border-width: 1px;
-    border-color: grey;
-    border-style: solid;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-width: 1px;
+  border-color: grey;
+  border-style: solid;
+  bottom: 0px;
+  left: 90%;
+  animation: myfirst 4.5s;
+  -moz-animation: myfirst 4.5s; /* Firefox */
+  -webkit-animation: myfirst 4.5s; /* Safari 和 Chrome */
+  -o-animation: myfirst 4.5s; /* Opera */
+
+  animation-timing-function: linear;
+  -moz-animation-timing-function: linear; /* Firefox */
+  -webkit-animation-timing-function: linear; /* Safari 和 Chrome */
+  -o-animation-timing-function: linear; /* Opera */
+
+  animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite; /* Firefox */
+  -webkit-animation-iteration-count: infinite; /* Safari 和 Chrome */
+  -o-animation-iteration-count: infinite; /* Opera */
+}
+
+@keyframes myfirst {
+  0% {
     bottom: 0px;
-    left: 90%;
-    animation: myfirst 4.5s;
-    -moz-animation: myfirst 4.5s;	/* Firefox */
-    -webkit-animation: myfirst 4.5s;	/* Safari 和 Chrome */
-    -o-animation: myfirst 4.5s;	/* Opera */
-
-    animation-timing-function: linear;
-    -moz-animation-timing-function: linear;	/* Firefox */
-    -webkit-animation-timing-function: linear;	/* Safari 和 Chrome */
-    -o-animation-timing-function: linear;	/* Opera */
-
-    animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;	/* Firefox */
-    -webkit-animation-iteration-count: infinite;	/* Safari 和 Chrome */
-    -o-animation-iteration-count: infinite;	/* Opera */
+    opacity: 0.6;
+  }
+  100% {
+    bottom: 250px;
+    opacity: 0;
+  }
 }
 
-@keyframes myfirst
-{
-    0%   {bottom: 0px;opacity: 0.6;}
-    100% {bottom: 250px;opacity: 0;}
+@-webkit-keyframes myfirst /* Safari 和 Chrome */ {
+  0% {
+    bottom: 0px;
+    opacity: 0.6;
+  }
+  100% {
+    bottom: 250px;
+    opacity: 0;
+  }
 }
 
-@-webkit-keyframes myfirst /* Safari 和 Chrome */
-{
-    0%   {bottom: 0px;opacity: 0.6;}
-    100% {bottom: 250px;opacity: 0;}
+@-moz-keyframes myfirst /* Firefox */ {
+  0% {
+    bottom: 0px;
+    opacity: 0.6;
+  }
+  100% {
+    bottom: 250px;
+    opacity: 0;
+  }
 }
 
-@-moz-keyframes myfirst /* Firefox */
-{
-    0%   {bottom: 0px;opacity: 0.6;}
-    100% {bottom: 250px;opacity: 0;}
-}
-
-@-o-keyframes myfirst /* Opera */
-{
-    0%   {bottom: 0px;opacity: 0.6;}
-    100% {bottom: 250px;opacity: 0;}
+@-o-keyframes myfirst /* Opera */ {
+  0% {
+    bottom: 0px;
+    opacity: 0.6;
+  }
+  100% {
+    bottom: 250px;
+    opacity: 0;
+  }
 }
 
 .usermood-form {
-    height: 80%;
-    width: 100%;
-    display: inline-block;
+  height: 80%;
+  width: 100%;
+  display: inline-block;
 }
 
 .usermood-textarea {
-    height: 100%;
-    width: 100%;
-    resize: none;
-    background-color: rgba(241,241,241,.98);
-    border-radius: 3px;
-    box-sizing: border-box;
-    outline-color: green;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
+  height: 100%;
+  width: 100%;
+  resize: none;
+  background-color: rgba(241, 241, 241, 0.98);
+  border-radius: 3px;
+  box-sizing: border-box;
+  outline-color: green;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
-.usermood-form-div{
-    height: 100%;
-    width: 100%;
-    opacity: 1;
-    z-index: 10;
-    transition: opacity 1s;
-    -webkit-transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -ms-transition: opacity 1s;
-    -o-transition: opacity 1s;
-}
-
-.usermood-form-div-disable{
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    z-index: -1;
+.usermood-form-div {
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  z-index: 10;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
 }
 
-
-.usermood-display-div{
-    height: 100%;
-    width: 100%;
-    position: relative;
-    top: -100%;
-    left: 0px;
-    opacity: 1;
-    z-index: 10;
-    transition: opacity 1s;
-    -webkit-transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -ms-transition: opacity 1s;
-    -o-transition: opacity 1s;
+.usermood-form-div-disable {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: -1;
 }
 
-.usermood-display-div-disable{
-    height: 100%;
-    width: 100%;
-    left: 0px;
-    position: relative;
-    top: -100%;
-    opacity: 0;
-    z-index: -1;
+.usermood-display-div {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  top: -265px;
+  left: 0px;
+  opacity: 1;
+  z-index: 10;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 14px;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
 }
 
+
+
+.usermood-display-div-disable {
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  position: relative;
+  top: -100%;
+  opacity: 0;
+  z-index: -1;
+}
 
 .submit-btn {
-    width: 60px;
-    height: 24px;
-    border-width: 0px;
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
-    background: green;
-    cursor: pointer;
-    outline: none;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+  width: 60px;
+  height: 24px;
+  border-width: 0px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  background: green;
+  cursor: pointer;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }
 
-
 .cancel-btn {
-    width: 60px;
-    height: 24px;
-    border-width: 0px;
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
-    background: #9b9090;
-    cursor: pointer;
-    outline: none;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+  width: 60px;
+  height: 24px;
+  border-width: 0px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  background: #9b9090;
+  cursor: pointer;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }
 
 .create-btn {
-    width: 60px;
-    height: 24px;
-    border-width: 0px;
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
-    background: green;
-    cursor: pointer;
-    outline: none;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+  width: 60px;
+  height: 24px;
+  border-width: 0px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  background: green;
+  cursor: pointer;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }

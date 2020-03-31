@@ -4,7 +4,8 @@ import Home from "./pages/Home/Home.js";
 import About from "./pages/About/About.js";
 import Life from "./pages/Life/Life.js";
 import ArticleCon from "./pages/Article/ArticleCon.js";
-import CacheRoute, { CacheSwitch } from 'react-router-cache-route'
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
+import { NotificationContainer } from 'react-notifications';
 
 class App extends Component {
   constructor(props) {
@@ -95,7 +96,9 @@ class App extends Component {
 
     return (
       <div>
+        
         <Router>
+          <NotificationContainer />
           <div style={this.state.navHide ? navHideStyle : navStyle} className="nav-container">
             <div className="nav">
               <ul>
@@ -137,6 +140,7 @@ class App extends Component {
             </Route>
           </CacheSwitch>
         </Router>
+        
       </div>
     );
   }

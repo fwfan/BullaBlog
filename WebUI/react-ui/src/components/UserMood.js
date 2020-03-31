@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './components.css';
-
 import { connect } from 'react-redux';
 import { setUserMood, getUserMood } from '../redux/actions/userMoodActions';
 import PropTypes from 'prop-types';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 class UserMood extends Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class UserMood extends Component {
         }
         this.setState({
             editMood: ''
-        });
+        });  
     }
 
     cancleSubmitMood(){
@@ -39,7 +40,6 @@ class UserMood extends Component {
     }
 
     submitHandler = () => {
-
         this.changeMoodMode();
         
         fetch('/Index/Index/userMood', {
@@ -50,11 +50,9 @@ class UserMood extends Component {
             body: JSON.stringify({"editMood":this.state.editMood})
         })
             .then(res => res.json())
-            .then(json => { 
-                console.log(json);
-                this.setState({
-                    editMood: ''
-                });
+            .then(json => {
+                NotificationManager.success('提交成功了','',2000);
+                this.props.getUserMood();
              })
     }
 
@@ -69,7 +67,21 @@ class UserMood extends Component {
 
         const btnStyle = {
             marginLeft : '20px',
-            float : 'right'
+            float : 'right',
+            bottom : '0px'
+        }
+
+        const newBtnStyle = {
+            marginLeft: '20px',
+            bottom: '0px',
+            position: 'absolute',
+            float: 'right',
+            right:'0px',
+            opacity:0
+        }
+
+        const notificationsStyle ={
+            zIndex :'100'
         }
 
         return (
@@ -84,9 +96,9 @@ class UserMood extends Component {
                 
                 <div className={this.state.moodMode == 'edit' ? 'usermood-display-div-disable' : 'usermood-display-div'}>
                     {this.props.userMood.map(item => <p key={Math.random()}>{item['mood']}</p>)}
-                    <button className="create-btn" onClick={this.changeMoodMode}>新 建</button>
                 </div>
 
+                <button className="create-btn" style={newBtnStyle} onClick={this.changeMoodMode}>新 建</button>
                 <div className="roll-div">
                     <div className="roll-item1 roll-item"></div>
                     <div className="roll-item2 roll-item"></div>
@@ -94,6 +106,7 @@ class UserMood extends Component {
                     <div className="roll-item4 roll-item"></div>
                     <div className="roll-item5 roll-item"></div>
                 </div>
+                
             </div>
         );
     }
