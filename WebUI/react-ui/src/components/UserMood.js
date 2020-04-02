@@ -3,7 +3,7 @@ import './components.css';
 import { connect } from 'react-redux';
 import { setUserMood, getUserMood } from '../redux/actions/userMoodActions';
 import PropTypes from 'prop-types';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
+import {NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
 class UserMood extends Component {
@@ -40,8 +40,11 @@ class UserMood extends Component {
     }
 
     submitHandler = () => {
+        if (!this.state.editMood){
+            NotificationManager.info('输入内容不能为空', '', 2000);
+            return ;
+        }
         this.changeMoodMode();
-        
         fetch('/Index/Index/userMood', {
             method: 'post',
             headers: {
