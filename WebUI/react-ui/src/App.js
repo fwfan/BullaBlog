@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home.js";
 import About from "./pages/About/About.js";
-import Life from "./pages/Life/Life.js";
+//import Life from "./pages/Life/Life.js";
 import ArticleCon from "./pages/Article/ArticleCon.js";
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
-import { NotificationContainer } from 'react-notifications';
+import { Toast } from "./components/Toast/Toast.js";
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +23,6 @@ class App extends Component {
         navHide: true
       });
     }
-    //window.alert('new window' + window.location.href);
 
     
     window.addEventListener('hashchange', () => {
@@ -98,7 +97,7 @@ class App extends Component {
       <div>
         
         <Router>
-          <NotificationContainer />
+          <Toast />
           <div style={this.state.navHide ? navHideStyle : navStyle} className="nav-container">
             <div className="nav">
               <ul>

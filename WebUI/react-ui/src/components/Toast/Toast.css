@@ -1,0 +1,89 @@
+.toast-show-div {
+  position: fixed;
+  right: 30px;
+  width: 300px;
+  top: 80px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: rgb(61, 59, 59);
+  z-index: 1000;
+  background-color: rgb(157, 252, 169);
+  background-origin: 0.5;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 2px rgb(197, 196, 196);
+  animation: toast-show 0.5s;
+  -webkit-animation: toast-show 0.5s;
+}
+
+@keyframes toast-show {
+  0% {
+    right: -310px;
+  }
+
+  100% {
+    right: 30px;
+  }
+}
+
+@-webkit-keyframes toast-show {
+  0% {
+    right: -310px;
+  }
+
+  100% {
+    right: 30px;
+  }
+}
+
+.toast-hide-div {
+  position: fixed;
+  right: 30px;
+  width: 310px;
+  top: 80px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: rgb(61, 59, 59);
+  z-index: 1000;
+  background-color: rgb(157, 252, 169);
+  background-origin: 0.5;
+  border-radius: 2px;
+  opacity: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 2px rgb(197, 196, 196);
+  animation: toast-hide 0.5s;
+  -webkit-animation: toast-hide 0.5s;
+}
+
+@keyframes toast-hide {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    right: -310px;
+  }
+}
+
+@-webkit-keyframes toast-hide {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    right: -310px;
+  }
+}
+

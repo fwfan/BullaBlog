@@ -3,8 +3,7 @@ import './components.css';
 import { connect } from 'react-redux';
 import { setUserMood, getUserMood } from '../redux/actions/userMoodActions';
 import PropTypes from 'prop-types';
-import {NotificationManager } from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import { ToastManagerExample} from "./Toast/Toast";
 
 class UserMood extends Component {
     constructor(props) {
@@ -18,6 +17,7 @@ class UserMood extends Component {
     }
 
     changeMoodMode(){
+        ToastManagerExample.info();
         if(this.state.moodMode == 'display'){
             this.setState({ moodMode: 'edit' });
         }else{
@@ -41,7 +41,7 @@ class UserMood extends Component {
 
     submitHandler = () => {
         if (!this.state.editMood){
-            NotificationManager.info('输入内容不能为空', '', 2000);
+            ToastManagerExample.info();
             return ;
         }
         this.changeMoodMode();
@@ -54,7 +54,7 @@ class UserMood extends Component {
         })
             .then(res => res.json())
             .then(json => {
-                NotificationManager.success('提交成功了','',2000);
+                ToastManagerExample.info('提交成功了');
                 this.props.getUserMood();
              })
     }
@@ -62,6 +62,7 @@ class UserMood extends Component {
 
     componentDidMount() {
         this.props.getUserMood();
+        ToastManagerExample.info();
     }
 
     render() {
@@ -83,9 +84,6 @@ class UserMood extends Component {
             opacity:0
         }
 
-        const notificationsStyle ={
-            zIndex :'100'
-        }
 
         return (
             <div className="author-div">

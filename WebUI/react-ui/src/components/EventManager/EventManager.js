@@ -1,9 +1,13 @@
 /* 
 事件监听器
 */
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-class EventManager {
-    constructor() {
+
+class EventManager extends Component{
+    constructor(props) {
+        super(props);
         this._events = {}
     }
 
