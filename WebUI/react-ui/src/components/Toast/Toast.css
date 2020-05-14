@@ -43,7 +43,7 @@
 .toast-hide-div {
   position: fixed;
   right: 30px;
-  width: 310px;
+  width: -310px;
   top: 80px;
   height: 60px;
   line-height: 60px;
@@ -66,6 +66,7 @@
 @keyframes toast-hide {
   0% {
     opacity: 1;
+    right: 30px;
   }
 
   100% {
@@ -77,6 +78,7 @@
 @-webkit-keyframes toast-hide {
   0% {
     opacity: 1;
+    right: 30px;
   }
 
   100% {
