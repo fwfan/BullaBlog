@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import EventManager from '../EventManager/EventManager';
-import  './Toast.css';
+import './Toast.css';
 
 var EventManagerExmaple = new EventManager();
 
-class ToastManager extends Component{
+class ToastManager extends Component {
     constructor(params) {
         super(params);
     }
@@ -14,62 +14,109 @@ class ToastManager extends Component{
     }
 
     success = () => {
-
+        EventManagerExmaple.fireEvent('success');
     }
 
     fail = () => {
-
+        EventManagerExmaple.fireEvent('fail');
     }
 
-    render(){
-        return (<div></div>);
-    }
 }
 
-
-//var ToastManagerExample = new ToastManager();
 
 class Toast extends Component {
     constructor(params) {
         super(params);
 
         this.state = {
-            message: '提交成功',
-            status: 'hide'
+            message: '',
+            status: 'hide',
+            style: {}
         }
     }
 
     componentDidMount() {
         this.EventManagerExmaple = EventManagerExmaple.on('info', this.info);
+        this.EventManagerExmaple = EventManagerExmaple.on('success', this.success);
+        this.EventManagerExmaple = EventManagerExmaple.on('fail', this.fail);
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.EventManagerExmaple = EventManagerExmaple.un('info', this.info);
+        this.EventManagerExmaple = EventManagerExmaple.un('success', this.success);
+        this.EventManagerExmaple = EventManagerExmaple.un('fail', this.fail);
     }
 
-    info = (msg) => {
+    info = (msg = '网络一线牵，珍惜这段缘^_^', timeout = 3000, callback, style = { backgroundColor: 'rgb(86, 184, 241)' }, item) => {
         this.setState({
-            message: '提交成功!',
-            status: 'show'
+            state, ...{
+                message: msg,
+                status: 'show',
+                style: style
+            }
         });
-        setTimeout(()=>{
+        let state = this.state;
+        setTimeout(() => {
             this.setState({
-                message: '提交成功!',
-                status: 'hide'
+                state, ...{
+                    status: 'hide',
+                    style: style
+                }
             });
-        }, 3000);
+            if (typeof callback == 'function') {
+                callback();
+            }
+        }, timeout);
+    }
+
+    success = (msg = '服务器收到您的消息啦~~', timeout = 3000, callback, style = { backgroundColor: 'rgb(157, 252, 169)' }, item) => {
+        let state = this.state;
+
+        this.setState({state,...{
+            message: msg,
+            status: 'show',
+            style: style
+        }});
+
+
+        setTimeout(() => {
+            this.setState({
+                state, ...{
+                    status: 'hide',
+                    style: style
+                }
+            });
+            if (typeof callback == 'function') {
+                callback();
+            }
+        }, timeout);
+    }
+
+    fail = (msg = '服务器没有收到您的消息—_—!', timeout = 3000, callback, style = { backgroundColor: 'rgb(247, 159, 137)' }, item) => {
+        this.setState({
+            state, ...{
+                message: msg,
+                status: 'show',
+                style: style
+            }
+        });
+        let state = this.state;
+        setTimeout(() => {
+            this.setState({
+                state, ...{
+                    status: 'hide',
+                    style: style
+                }
+            });
+            if (typeof callback == 'function') {
+                callback();
+            }
+        }, timeout);
     }
 
     render() {
-        const height = document.body.clientHeight;
-        const width = document.body.clientWidth;
-        
-        let position = {
-
-        }
-
         return (
-            <div className={this.state.status == 'show' ? 'toast-show-div' : 'toast-hide-div'} style={position}>
+            <div className={this.state.status == 'show' ? 'toast-show-div' : 'toast-hide-div'} style={this.state.style}>
                 {this.state.message}
             </div>
         );
@@ -77,4 +124,4 @@ class Toast extends Component {
 }
 var ToastManagerExample = new ToastManager();
 
-export { Toast, ToastManagerExample};
+export { Toast, ToastManagerExample };

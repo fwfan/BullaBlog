@@ -17,7 +17,6 @@ class UserMood extends Component {
     }
 
     changeMoodMode(){
-        ToastManagerExample.info();
         if(this.state.moodMode == 'display'){
             this.setState({ moodMode: 'edit' });
         }else{
@@ -41,10 +40,8 @@ class UserMood extends Component {
 
     submitHandler = () => {
         if (!this.state.editMood){
-            ToastManagerExample.info();
             return ;
         }
-        this.changeMoodMode();
         fetch('/Index/Index/userMood', {
             method: 'post',
             headers: {
@@ -54,7 +51,8 @@ class UserMood extends Component {
         })
             .then(res => res.json())
             .then(json => {
-                ToastManagerExample.info('提交成功了');
+                ToastManagerExample.success();
+                this.changeMoodMode();
                 this.props.getUserMood();
              })
     }
@@ -62,12 +60,11 @@ class UserMood extends Component {
 
     componentDidMount() {
         this.props.getUserMood();
-        ToastManagerExample.info();
     }
 
     render() {
 
-        const placeholder='你想发表的心情......不能为空哦^_^';
+        const placeholder='你想发表的心情......不能为空^_^';
 
         const btnStyle = {
             marginLeft : '20px',

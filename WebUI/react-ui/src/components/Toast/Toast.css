@@ -8,7 +8,6 @@
   text-align: center;
   color: rgb(61, 59, 59);
   z-index: 1000;
-  background-color: rgb(157, 252, 169);
   background-origin: 0.5;
   border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -51,7 +50,6 @@
   text-align: center;
   color: rgb(61, 59, 59);
   z-index: 1000;
-  background-color: rgb(157, 252, 169);
   background-origin: 0.5;
   border-radius: 2px;
   opacity: 0;
