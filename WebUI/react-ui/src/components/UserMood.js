@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setUserMood, getUserMood } from '../redux/actions/userMoodActions';
 import PropTypes from 'prop-types';
 import { ToastManagerExample} from "./Toast/Toast";
+import { getData } from '../Utils/CommonFunUtils';
 
 class UserMood extends Component {
     constructor(props) {
@@ -74,7 +75,7 @@ class UserMood extends Component {
 
         const newBtnStyle = {
             marginLeft: '20px',
-            bottom: '0px',
+            bottom: '-40px',
             position: 'absolute',
             float: 'right',
             right:'0px',
@@ -92,8 +93,9 @@ class UserMood extends Component {
                     <button className="cancel-btn" style={btnStyle} onClick={this.cancleSubmitMood}>取 消</button>
                 </div>
                 
+
                 <div className={this.state.moodMode === 'edit' ? 'usermood-display-div-disable' : 'usermood-display-div'}>
-                    {this.props.userMood.map(item => <p key={Math.random()}>{item['mood']}</p>)}
+                    {this.props.userMood.map(item => <div key={Math.random()}><div className='usermood-time-div'>{getData(item['submitTime'])}</div><p>{item['mood']}</p></div>)}
                 </div>
 
                 <button className="create-btn" style={newBtnStyle} onClick={this.changeMoodMode}>新 建</button>
