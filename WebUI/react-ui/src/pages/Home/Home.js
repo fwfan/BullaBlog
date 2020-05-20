@@ -6,6 +6,7 @@ import $ from 'jquery';
 import Announcement from './Announcement.js';
 import LoadingTips from '../../components/LoadingTips.js';
 import UserMood from '../../components/UserMood.js';
+import { ProcessManagerE} from '../../components/ProgressBar/ProcessBar';
 
 
 class Home extends Component {
@@ -36,7 +37,7 @@ class Home extends Component {
     fetchContent() {
         let url = `/Index/Index/subIndex?limit=8`;
         let firstPageNum = 8;
-
+        ProcessManagerE.startProcess();
         if (this.state.pageNum === 0) {
             url = `/Index/Index/subIndex?start=0&limit=${firstPageNum}`
         } else {
@@ -48,12 +49,14 @@ class Home extends Component {
             method: 'GET'
         }).then(res => res.json()).then(
             (data) => {
+                ProcessManagerE.endProcess();
                 if(data.result.length === 0){
                     this.setState({
                         loadState: 3
                     });
                 }else{
                     let num = this.state.pageNum + 1;
+
                     this.setState({
                         loadState: 2,
                         pageNum: num,

@@ -5,7 +5,6 @@ const initializeState = {
     textareaValue : [{'mood':'', 'time':'1'}]
 }
 
-
 export default function userMoodReducer(state = initializeState, action) {
     switch (action.type) {
         case SET_USER_MOOD_VALUE : 
@@ -16,4 +15,3 @@ export default function userMoodReducer(state = initializeState, action) {
             return state;
     }
 }
-

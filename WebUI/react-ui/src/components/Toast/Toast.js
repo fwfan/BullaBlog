@@ -63,7 +63,7 @@ class Toast extends Component {
                     style: style
                 }
             });
-            if (typeof callback == 'function') {
+            if (typeof callback === 'function') {
                 callback();
             }
         }, timeout);
@@ -86,7 +86,7 @@ class Toast extends Component {
                     style: style
                 }
             });
-            if (typeof callback == 'function') {
+            if (typeof callback === 'function') {
                 callback();
             }
         }, timeout);
@@ -108,7 +108,7 @@ class Toast extends Component {
                     style: style
                 }
             });
-            if (typeof callback == 'function') {
+            if (typeof callback === 'function') {
                 callback();
             }
         }, timeout);

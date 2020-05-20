@@ -6,6 +6,7 @@ import About from "./pages/About/About.js";
 import ArticleCon from "./pages/Article/ArticleCon.js";
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 import { Toast } from "./components/Toast/Toast.js";
+import {ProcessBar} from "./components/ProgressBar/ProcessBar";
 
 class App extends Component {
   constructor(props) {
@@ -121,6 +122,9 @@ class App extends Component {
           </div>
 
           <div style={this.state.navHide ? contentContainerTopHideStyle : contentContainerTopStyle} className="content-container-top" ></div>
+
+          <ProcessBar />          
+          
           <CacheSwitch>
             <CacheRoute exact saveScrollPosition={true} style={contentContainerTopHideStyle} path="/">
               <Home />

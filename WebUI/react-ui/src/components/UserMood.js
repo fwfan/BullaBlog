@@ -17,7 +17,7 @@ class UserMood extends Component {
     }
 
     changeMoodMode(){
-        if(this.state.moodMode == 'display'){
+        if(this.state.moodMode === 'display'){
             this.setState({ moodMode: 'edit' });
         }else{
             this.setState({ moodMode: 'display' });
@@ -84,7 +84,7 @@ class UserMood extends Component {
 
         return (
             <div className="author-div">
-                <div className={this.state.moodMode == 'edit' ? 'usermood-form-div' : 'usermood-form-div-disable'}>
+                <div className={this.state.moodMode === 'edit' ? 'usermood-form-div' : 'usermood-form-div-disable'}>
                     <form className='usermood-form' >
                         <textarea maxLength={120} className='usermood-textarea' value={this.state.editMood} onChange={this.textareaOnchangeHandler} placeholder={placeholder}></textarea>
                     </form>
@@ -92,7 +92,7 @@ class UserMood extends Component {
                     <button className="cancel-btn" style={btnStyle} onClick={this.cancleSubmitMood}>取 消</button>
                 </div>
                 
-                <div className={this.state.moodMode == 'edit' ? 'usermood-display-div-disable' : 'usermood-display-div'}>
+                <div className={this.state.moodMode === 'edit' ? 'usermood-display-div-disable' : 'usermood-display-div'}>
                     {this.props.userMood.map(item => <p key={Math.random()}>{item['mood']}</p>)}
                 </div>
 
