@@ -43,26 +43,54 @@ class ProcessBar extends Component {
     }
 
     startProcess=(config)=>{
+        this.updateState({
+            status : 'START',
+            width: '10%',
+            height: '4px',
+        });
         setTimeout(()=>{
-            this.updateState({
-                width : '20%',
-                height : '4px',
-            });
-            setTimeout(() => {
+            if(this.state.status === 'INIT'){
+                this.endProcess();
+                return
+            }else{
                 this.updateState({
-                    width: '30%',
+                    width: '20%',
                     height: '4px',
-                })
-                setTimeout(() => {
+                });
+            }
+
+            setTimeout(() => {
+                if (this.state.status === 'INIT') {
+                    this.endProcess();
+                    return
+                }else{
                     this.updateState({
-                        width: '80%',
+                        width: '40%',
                         height: '4px',
                     })
-                    setTimeout(() => {
+                }
+
+                setTimeout(() => {
+                    if (this.state.status === 'INIT') {
+                        this.endProcess();
+                        return
+                    }else{
                         this.updateState({
-                            width: '90%',
+                            width: '80%',
                             height: '4px',
                         })
+                    }
+
+                    setTimeout(() => {
+                        if (this.state.status === 'INIT') {
+                            this.endProcess();
+                            return
+                        }else{
+                            this.updateState({
+                                width: '90%',
+                                height: '4px',
+                            })
+                        }
                     }, 200);
                 }, 200);
             }, 200);
@@ -71,12 +99,13 @@ class ProcessBar extends Component {
 
     endProcess=(config)=>{
         this.updateState({
+            status : 'END',
             width: '100%',
         });
         this.updateState({
+            status : 'INIT',
             width: 0,
             height : 0,
-
         });
     }
 
