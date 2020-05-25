@@ -26,9 +26,12 @@ class LoadingTips extends Component {
 
     render(){
         let {loadState} = this.props;
+        
         let style = {
-            height: '50px',
+            color : 'grey',
+            height: '200px',
             textAlign: 'center',
+            lineHeight : '200px'
         }
 
         return (
