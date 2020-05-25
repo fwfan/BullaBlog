@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './components.css';
+import '../../components/components.scss';
 import { connect } from 'react-redux';
-import { setUserMood, getUserMood } from '../redux/actions/userMoodActions';
+import { setUserMood, getUserMood } from '../../redux/actions/userMoodActions';
 import PropTypes from 'prop-types';
-import { ToastManagerExample} from "./Toast/Toast";
-import { getData } from '../Utils/CommonFunUtils';
+import { ToastManagerExample} from "../../components/Toast/Toast";
+import { getDateAndTime } from '../../Utils/CommonFunUtils';
 
 class UserMood extends Component {
     constructor(props) {
@@ -95,7 +95,7 @@ class UserMood extends Component {
                 
 
                 <div className={this.state.moodMode === 'edit' ? 'usermood-display-div-disable' : 'usermood-display-div'}>
-                    {this.props.userMood.map(item => <div key={Math.random()}><div className='usermood-time-div'>{getData(item['submitTime'])}</div><p>{item['mood']}</p></div>)}
+                    {this.props.userMood.map(item => <div key={Math.random()}><div className='usermood-time-div'>{getDateAndTime(item['submitTime'], false)}</div><p>{item['mood']}</p></div>)}
                 </div>
 
                 <button className="create-btn" style={newBtnStyle} onClick={this.changeMoodMode}>新 建</button>

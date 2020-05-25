@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './components.css';
+import '../components.scss';
 class ScrollDiv extends Component {
     constructor(props){
         super(props);

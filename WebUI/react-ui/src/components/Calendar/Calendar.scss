@@ -1,0 +1,86 @@
+$textSize: 10px;
+$border: 1px solid grey;
+.calender-select-date-div {
+  height: 12%;
+  width: 100%;
+  display: table;
+  font-size: $textSize;
+  button {
+    background-color: white;
+    font-size: $textSize;
+    border: 1px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .calendar-select-date-div-date-div {
+    height: 100%;
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .calender-preMonth {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+  }
+
+  .calender-nextMonth {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+  }
+}
+
+.calender-month-div {
+  height: 88%;
+  width: 100%;
+  border-top: $border;
+}
+
+.calender-div {
+  border: $border;
+  margin: 10px 10px 10px 10px;
+}
+
+$tdWidth: 100%;
+
+.calender-month-table {
+  table-layout: fixed;
+  word-break: break-all;
+  height: 100%;
+  width: 100%;
+  font-size: $textSize;
+  td {
+    width: $tdWidth/7;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    cursor:default;
+    span {
+      visibility: hidden;
+      background-color: rgb(157, 252, 169);
+      color: black;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 2px;
+      /*定位*/
+      position: absolute;
+      z-index: 1;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      -ms-border-radius: 2px;
+      -o-border-radius: 2px;
+    }
+    &:hover span {
+      visibility: visible;
+      width: 120px;
+      left: 25px;
+      top: -30px;
+    }
+  }
+}
+

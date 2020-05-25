@@ -4,8 +4,8 @@ import ListItem from './ListItem.js';
 import $ from 'jquery';
 
 import Announcement from './Announcement.js';
-import LoadingTips from '../../components/LoadingTips.js';
-import UserMood from '../../components/UserMood.js';
+import LoadingTips from '../../components/LoadingTips/LoadingTips.js';
+import UserMood from './UserMood.js';
 import { ProcessManagerE} from '../../components/ProgressBar/ProcessBar';
 
 

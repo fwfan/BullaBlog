@@ -1,22 +1,23 @@
-import React, {Component}from 'react';
+import React, { Component } from 'react';
 import './Home.css';
+import Calendar from '../../components/Calendar/Calendar';
 
 class Announcement extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state ={
-            visitorNumber : 0,
+        this.state = {
+            visitorNumber: 0,
             getVisitorNumUrl: '/Index/Index/getVisitorNum'
         }
 
         this.fetchVisitorNumber = this.fetchVisitorNumber.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.fetchVisitorNumber();
     }
 
-    fetchVisitorNumber(){
+    fetchVisitorNumber() {
         let url = '/Index/Index/getVisitorNum';
 
         fetch(url, {
@@ -34,19 +35,20 @@ class Announcement extends Component {
         )
     }
 
-    render(){
+    render() {
 
         let contentStyle = {
-            width :'100%',
-            height : '300px',
-            backgroundColor : 'white',
-            padding :'10px 10px 10px 10px',
+            width: '100%',
+            height: '300px',
+            backgroundColor: 'white',
+            padding: '10px 10px 10px 10px',
             borderRadius: '2px'
         }
 
         return (
             <div className="announcement-div" style={contentStyle}>
-               <div className="announcement-visitor-number">今日访问人数：{this.state.visitorNumber}</div>
+                <div className="announcement-visitor-number">今日访问人数：{this.state.visitorNumber}</div>
+                <Calendar />
             </div>
         );
     }

@@ -116,7 +116,7 @@ class Toast extends Component {
 
     render() {
         return (
-            <div className={this.state.status == 'show' ? 'toast-show-div' : 'toast-hide-div'} style={this.state.style}>
+            <div className={this.state.status === 'show' ? 'toast-show-div' : 'toast-hide-div'} style={this.state.style}>
                 {this.state.message}
             </div>
         );
