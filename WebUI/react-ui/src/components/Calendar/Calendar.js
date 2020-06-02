@@ -23,8 +23,18 @@ class Calendar extends Component {
         }
     }
 
-    fetchData = (url)=>{
+    fetchData = (url,params)=>{
         if(!url) return;
+        if (params) {
+            let paramsArray = [];
+            //拼接参数
+            Object.keys(params).forEach(key => paramsArray.push(key + '=' + params[key]))
+            if (url.search(/\?/) === -1) {
+                url += '?' + paramsArray.join('&')
+            } else {
+                url += '&' + paramsArray.join('&')
+            }
+        }
         fetch(url, {
             method: 'GET'
         }).then(res => res.json()).then(
@@ -39,7 +49,7 @@ class Calendar extends Component {
     }
 
     componentDidMount(){
-        this.fetchData(this.props.url);
+        this.fetchData(this.props.url, this.state.selectDate);
     }
 
     isLeapYear = (year) => {
@@ -57,10 +67,10 @@ class Calendar extends Component {
             day: 1, 
             month : 1, 
             year : 2020,
-            isThisMonth: true, 
-            isCurrentToday : false,
-            isCurrentMonth : false,
-            data : ''
+            isThisMonth: true, //是否属于当月
+            isCurrentToday : false,//是否是当天
+            isCurrentMonth : false,//是否是当月
+            data : ''//从服务器请求回来的数据
         };
 
         var today = new Date().getDate();
@@ -172,6 +182,7 @@ class Calendar extends Component {
         }else{
             month = month - 1;
         }
+
         this.setState({
             state, ...{
                 selectDate: {
@@ -179,6 +190,10 @@ class Calendar extends Component {
                     month: month
                 }
         }});
+
+        if (this.props.url) {
+            this.fetchData(this.props.url, this.state.selectDate);
+        }
     }
 
     next=()=>{
@@ -199,6 +214,10 @@ class Calendar extends Component {
                 }
             }
         });
+
+        if (this.props.url) {
+            this.fetchData(this.props.url, this.state.selectDate);
+        }
     }
 
     componentDidMount(){
@@ -272,7 +291,8 @@ Calendar.defaultProps = {
     data : [
         { date: '1588464000000', content:'举例：更新内容1'},
         { date: '1589904000000', content: '举例：更新内容2' }
-    ]
+    ],
+    url:''
 };
 
 export default Calendar;

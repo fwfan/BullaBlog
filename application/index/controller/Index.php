@@ -18,8 +18,17 @@ class Index
     {
         $start = (int)$start;
         $limit = (int)$limit;
+        $sql = "select * from content ";
+        $condition = " where ";
+        $limitSql = " order by uid desc limit ?, ? ";
+        if(array_key_exists('tag', $_GET) && $_GET['tag']){
+            $condition = $condition.' tags like "%'. $_GET['tag']. '%" ';
+            $sql = $sql . $condition;
+        }
 
-        $result = Db::query("select * from content order by uid desc limit ?, ?", [$start, $limit]);
+        $sql = $sql. $limitSql;
+
+        $result = Db::query($sql, [$start, $limit]);
         return formatResult(true, $result, '');
     }
 
@@ -74,6 +83,17 @@ class Index
             } else {
                 return formatResult(false, $result, '');
             }
+        }
+    }
+
+    //获取所有的tags标签
+    public function allTags(){
+        $result = Db::query('select * from  tags order by hot desc limit 5');
+
+        if($result){
+            return formatResult(true, $result, '');
+        }else{
+            return formatResult(false, $result, '');
         }
     }
 

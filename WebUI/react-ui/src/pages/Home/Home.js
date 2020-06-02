@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Home.css';
+import './Home.scss';
 import ListItem from './ListItem.js';
 import $ from 'jquery';
 
@@ -15,11 +15,13 @@ class Home extends Component {
         this.state = {
             homeContent : [],
             loadState : 0,
-            pageNum : 0
+            pageNum : 0,
+            filter : '',
+            stopFetch : false
         };
         this.lastScrollTime = 0;
         this.scrollHandler = this.scrollHandler.bind(this);
-        this.fetchContent = this.fetchContent.bind(this);
+        this.beforeFetchContent = this.beforeFetchContent.bind(this);
     }
 
     scrollHandler() {
@@ -28,42 +30,59 @@ class Home extends Component {
         let scrollTop = $(window).scrollTop();
         let curTime = new Date();
         if (150 + scrollTop >= conHeight - winHeight){
-            if(curTime - this.lastScrollTime < 500) return; 
+            if(curTime - this.lastScrollTime < 500 || this.state.stopFetch === true) return; 
             this.lastScrollTime = curTime;
-            this.fetchContent();
+            this.beforeFetchContent(this.state.filter, false);
         }
     }
 
-    fetchContent() {
-        let url = `/Index/Index/subIndex?limit=8`;
+    beforeFetchContent(filter='', firstTime=true) {
+
+        this.setState({ ...this.state, ...{ filter: filter } });
+        let url = `/Index/Index/subIndex?limit=5`;
         let firstPageNum = 8;
         ProcessManagerE.startProcess();
-        if (this.state.pageNum === 0) {
+
+        if (this.state.pageNum === 0 || firstTime) {
             url = `/Index/Index/subIndex?start=0&limit=${firstPageNum}`
         } else {
             let start = (this.state.pageNum - 1) * 5 + firstPageNum;
             url = `/Index/Index/subIndex?start=${start}&limit=5`
         }
-        this.setState({loadState : 1});
+
+        if (filter) {
+            for(let name in filter){
+                url = url + '&' + name + '=' + filter[name];
+            }
+            if(firstTime){
+                this.clearContent(true,url);
+            }else{
+                this.clearContent(false, url);
+            }
+        }else{
+            this.clearContent(false, url);
+        }
+
+    }
+
+    fetchContent(url){
         fetch(url, {
             method: 'GET'
         }).then(res => res.json()).then(
             (data) => {
                 ProcessManagerE.endProcess();
-                if(data.result.length === 0){
-                    this.setState({
-                        loadState: 3
-                    });
-                }else{
-                    let num = this.state.pageNum + 1;
-
-                    this.setState({
-                        loadState: 2,
+                if (data.result.length < 5) {
+                    this.setState({ ...this.state, ...{ stopFetch: true, loadState: 3 } });
+                }
+                let num = this.state.pageNum + 1;
+                this.setState({
+                    ...this.state, ...{
+                        stopFetch: data.result.length < 5 ? true : false,
+                        loadState: data.result.length < 5 ? 3: 2,
                         pageNum: num,
                         homeContent: [...this.state.homeContent, ...data.result]
-                    });
-                }
-
+                    }
+                });
             }
         );
     }
@@ -76,7 +95,17 @@ class Home extends Component {
     componentDidMount() {
         window.addEventListener('scroll', this.scrollHandler);
 
-        this.fetchContent(0);
+        this.beforeFetchContent();
+    }
+
+    clearContent=(flag, url)=>{
+        if (flag){
+            this.setState({ ...this.state, ...{ homeContent: [], loadState: 1 } }, () => console.log(this.state));
+        }else{
+            this.setState({ ...this.state, ...{loadState: 1 } }, () => console.log(this.state));
+        }
+        
+        this.fetchContent(url);
     }
 
     render() {
@@ -92,7 +121,7 @@ class Home extends Component {
                     <LoadingTips loadState={this.state.loadState}></LoadingTips>
                 </div>
                 <div className="content-container-right" >
-                    <Announcement />
+                    <Announcement homeFetch={this.beforeFetchContent} />
                     <UserMood />
                 </div>
             </div>

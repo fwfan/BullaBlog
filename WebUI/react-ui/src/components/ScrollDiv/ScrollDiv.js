@@ -10,14 +10,14 @@ class ScrollDiv extends Component {
 
         this.scrollTime = 0;
         this.scrollHandler = this.scrollHandler.bind(this);
-        this.fetchContent = this.fetchContent.bind(this);
+        this.beforeFetchContent = this.beforeFetchContent.bind(this);
     }
 
     scrollHandler() {
 
     }
 
-    fetchContent() {
+    beforeFetchContent() {
 
     }
 

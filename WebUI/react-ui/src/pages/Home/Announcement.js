@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './Home.css';
+import './Home.scss';
 import Calendar from '../../components/Calendar/Calendar';
+import MusicPlayer from './MusicPlayer';
+import AllTags from './AllTags';
 
 class Announcement extends Component {
     constructor(props) {
@@ -48,7 +50,9 @@ class Announcement extends Component {
         return (
             <div className="announcement-div" style={contentStyle}>
                 <div className="announcement-visitor-number">今日访问人数：{this.state.visitorNumber}</div>
-                <Calendar />
+                {/* <Calendar /> */}
+                {/* <MusicPlayer /> */}
+                <AllTags homeFetch={this.props.homeFetch} />
             </div>
         );
     }

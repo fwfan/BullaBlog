@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Article.css';
 import ListItem from './../Home/ListItem.js';
-import './../Home/Home.css';
+import './../Home/Home.scss';
 
 class ArticleCon extends Component{
     constructor(props){

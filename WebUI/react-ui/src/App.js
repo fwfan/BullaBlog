@@ -53,7 +53,6 @@ class App extends Component {
           activeLi: 'home'
         });
       }
-      console.log('hash change' + window.location);
     });
   }
 
