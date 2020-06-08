@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ScrollDiv from '../../components/ScrollDiv/ScrollDiv.js';
+import './About.scss';
 class About extends Component {
     constructor(props) {
         super(props);
@@ -12,8 +13,8 @@ class About extends Component {
 
     render() {
         return(
-            <div>
-                <ScrollDiv />
+            <div className="about-div">
+                
             </div>
         );
     }

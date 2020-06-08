@@ -71,9 +71,6 @@ class Home extends Component {
         }).then(res => res.json()).then(
             (data) => {
                 ProcessManagerE.endProcess();
-                if (data.result.length < 5) {
-                    this.setState({ ...this.state, ...{ stopFetch: true, loadState: 3 } });
-                }
                 let num = this.state.pageNum + 1;
                 this.setState({
                     ...this.state, ...{

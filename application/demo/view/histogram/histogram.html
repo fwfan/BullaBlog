@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <style type="text/css">
+    .bt1 {
+      display: inline-block;
+      margin: 0px 10px 0px 80px;
+      background-color: #4b864d;
+      border: none;
+      color: white;
+      border-radius: 2px;
+      padding: 4px 10px;
+      text-align: center;
+      text-decoration: none;
+    }
+    .bt2 {
+      display: inline-block;
+      margin: 0px 10px 0px 10px;
+      background-color: #4b864d;
+      border: none;
+      color: white;
+      border-radius: 2px;
+      padding: 4px 10px;
+      text-align: center;
+      text-decoration: none;
+    }
+  </style>
+  <script type="text/javascript" src="/public/static/js/d3.min.js"></script>
+
+  <body>
+    <div style="width: 100%; height: 100%; text-align: left;">
+      <div style="width: 100%; height: 100%; text-align: le80;">
+        <button class="bt1" type="button" onclick="sort()">鎺掑簭</button>
+        <button class="bt2" type="button" onclick="reset()">閲嶇疆</button>
+      </div>
+
+      <div class="svg"></div>
+    </div>
+  </body>
+
+  <script>
+    var dataset = [185, 112, 135, 47, 96, 77, 35, 169, 23, 88];
+
+    var width = 500;
+    var height = 250;
+    var yaxisLeftPadding = 10;
+
+    var svg = d3
+      .select("div .svg")
+      .insert("svg", "button")
+      .attr("width", width)
+      .attr("height", height);
+    var padding = {
+      top: 20,
+      right: 20,
+      bottom: 20,
+      left: 40,
+    };
+
+    var rectWidth = 25;
+    var rectInnerWidth = 10;
+
+    function draw(dataset) {
+      var rect = svg
+        .selectAll("rect")
+        .data(dataset)
+        .attr("fill", "steelblue")
+        .attr(
+          "x",
+          (d, i) =>
+            yaxisLeftPadding + padding.left + i * (rectWidth + rectInnerWidth)
+        )
+        .attr("y", (d, i) => height - padding.bottom - d)
+        .attr("width", rectWidth)
+        .attr("height", (d) => d)
+        .attr("rx", 0)
+        .attr("ry", 0);
+
+      var rectEnter = svg
+        .selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr("fill", "steelblue")
+        .attr(
+          "x",
+          (d, i) =>
+            yaxisLeftPadding + padding.left + i * (rectWidth + rectInnerWidth)
+        )
+        .attr("y", (d, i) => height - padding.bottom - d)
+        .attr("width", rectWidth)
+        .attr("height", (d) => d)
+        .attr("rx", 0)
+        .attr("ry", 0);
+
+      var rectExit = svg.selectAll("rect").data(dataset).exit().remove();
+
+      var text = svg
+        .selectAll("text")
+        .data(dataset)
+        .attr("fill", "black")
+        .attr("font-size", "8px")
+        .attr("text-anchor", "middle")
+        .attr(
+          "x",
+          (d, i) =>
+            yaxisLeftPadding + padding.left + i * (rectWidth + rectInnerWidth)
+        )
+        .attr("y", (d, i) => height - padding.bottom - d)
+        .attr("dy", rectWidth / 2)
+        .attr("dx", rectWidth / 2)
+        .text((d) => d);
+
+      var textEnter = svg
+        .selectAll("text")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .attr("fill", "black")
+        .attr("font-size", "8px")
+        .attr("text-anchor", "middle")
+        .attr(
+          "x",
+          (d, i) =>
+            yaxisLeftPadding + padding.left + i * (rectWidth + rectInnerWidth)
+        )
+        .attr("y", (d, i) => height - padding.bottom - d)
+        .attr("dy", rectWidth / 2)
+        .attr("dx", rectWidth / 2)
+        .text((d) => d);
+      var textExit = svg.selectAll("text").data(dataset).exit().remove();
+
+      var widthRange = d3.range(0, width, rectWidth + rectInnerWidth);
+      var xScale = d3
+        .scaleOrdinal()
+        .domain([
+          "0",
+          "Mike",
+          "Jason",
+          "David",
+          "Lily",
+          "Bob",
+          "Poly",
+          "Smith",
+          "jack",
+          "Jim",
+          "Gorge",
+        ])
+        .range(widthRange);
+
+      var xAxis = d3
+        .axisBottom()
+        .scale(xScale)
+        .tickValues([
+          "0",
+          "Mike",
+          "Jason",
+          "David",
+          "Lily",
+          "Bob",
+          "Poly",
+          "Smith",
+          "jack",
+          "Jim",
+          "Gorge",
+        ]);
+      svg.selectAll(".gxaxis").remove();
+      var gXAxis = svg
+        .append("g")
+        .attr("class", "gxaxis")
+        .attr(
+          "transform",
+          "translate(" +
+            (padding.left +
+              yaxisLeftPadding +
+              rectWidth / 2 -
+              rectWidth -
+              rectInnerWidth) +
+            "," +
+            (height - padding.bottom) +
+            ")"
+        );
+
+      gXAxis.call(xAxis);
+
+      var yScale = d3.scaleLinear().domain([0, 230]).range([230, 0]);
+      var yAxis = d3.axisLeft().scale(yScale).ticks(5);
+      svg.selectAll(".gyaxis").remove();
+      var gYAxis = svg
+        .append("g")
+        .attr("class", "gyaxis")
+        .attr(
+          "transform",
+          "translate(" +
+            (padding.left +
+              yaxisLeftPadding +
+              rectWidth / 2 -
+              rectWidth -
+              rectInnerWidth) +
+            "," +
+            (height - padding.bottom - 230) +
+            ")"
+        );
+
+      gYAxis.call(yAxis);
+    }
+
+    draw(dataset);
+
+    function sort() {
+      copySet = dataset.concat();
+      copySet.sort(d3.ascending);
+      draw(copySet);
+    }
+
+    function reset() {
+      draw(dataset);
+    }
+  </script>
+</html>

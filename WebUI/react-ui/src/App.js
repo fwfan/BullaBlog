@@ -19,30 +19,29 @@ class App extends Component {
 
   componentDidMount() {
 
-    if(window.location.hash.indexOf('article')>0){
-      this.setState({
-        navHide: true
-      });
-    }
-
+    this.changeRouteState()();
     
-    window.addEventListener('hashchange', () => {
+    window.addEventListener('hashchange', this.changeRouteState());
+  }
+
+  changeRouteState=()=>{
+    return ()=>{
       if (window.location.hash.indexOf('article') > 0) {
         this.setState({
           navHide: true,
           activeLi: 'article'
         });
-      } else if (window.location.hash.indexOf('study') > 0){
+      } else if (window.location.hash.indexOf('study') > 0) {
         this.setState({
           navHide: false,
           activeLi: 'study'
         });
-      } else if (window.location.hash.indexOf('life') > 0){
+      } else if (window.location.hash.indexOf('life') > 0) {
         this.setState({
           navHide: false,
           activeLi: 'life'
         });
-      }  else if (window.location.hash.indexOf('about') > 0){
+      } else if (window.location.hash.indexOf('about') > 0) {
         this.setState({
           navHide: false,
           activeLi: 'about'
@@ -53,7 +52,7 @@ class App extends Component {
           activeLi: 'home'
         });
       }
-    });
+    }
   }
 
   render() {
