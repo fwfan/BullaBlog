@@ -12,7 +12,8 @@ class Tag extends Component {
         const { tags } = this.props;
 
         return (
-            <div className="list-item-tag-container"> 标签：
+            <div className="list-item-tag-container">
+                <div className="list-item-tag-title">标签:</div>
                 {tags.map(item => <span key={item} className="list-item-tag">{item}</span>)}
             </div>
         );

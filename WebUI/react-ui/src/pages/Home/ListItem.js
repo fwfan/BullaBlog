@@ -48,11 +48,16 @@ class ListItem extends Component {
 
         return (
             <div className={ListItemClassName} style={ListItemStyle}>
-                <h2>{title}</h2>
+                <h2 className="list-item-title">{title}</h2>
                 <Tag tags={tags} />
                 
-                <div className="list-item-time-container">{time}</div>
+                <div className="list-item-time-container">
+                    <div className="list-item-time-title">更新时间:</div>
+                    <div className="list-item-time">{time}</div>
+                </div>
+                <hr />
                 <iframe src={demoUrlBak} style={demoStyle}></iframe>
+                
                 <Article article={article_sub} />
                 <a className="list-item-a" style={detailStyle} href={window.location.href + `article?uid=${uid}`} target='_blank'>阅读全文</a>
                 <a className="list-item-a" style={observeDemoA} href={window.origin + demoUrlBak} target='_blank'>查看Demo</a>

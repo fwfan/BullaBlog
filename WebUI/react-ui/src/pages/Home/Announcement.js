@@ -49,7 +49,7 @@ class Announcement extends Component {
 
         return (
             <div className="announcement-div" style={contentStyle}>
-                <div className="announcement-visitor-number">今日访问人数：{this.state.visitorNumber}</div>
+                {/* <div className="announcement-visitor-number">今日访问人数：{this.state.visitorNumber}</div> */}
                 {/* <Calendar /> */}
                 {/* <MusicPlayer /> */}
                 <AllTags homeFetch={this.props.homeFetch} />

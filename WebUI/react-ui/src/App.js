@@ -7,6 +7,7 @@ import ArticleCon from "./pages/Article/ArticleCon.js";
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 import { Toast } from "./components/Toast/Toast.js";
 import {ProcessBar} from "./components/ProgressBar/ProcessBar";
+import ReactDom from 'react-dom';
 
 class App extends Component {
   constructor(props) {
@@ -25,8 +26,10 @@ class App extends Component {
   }
 
   changeRouteState=()=>{
+
     return ()=>{
       if (window.location.hash.indexOf('article') > 0) {
+        
         this.setState({
           navHide: true,
           activeLi: 'article'
@@ -42,11 +45,17 @@ class App extends Component {
           activeLi: 'life'
         });
       } else if (window.location.hash.indexOf('about') > 0) {
+        var body = document.getElementsByTagName('body');
+        ReactDom.findDOMNode(body[0]).style.overflowX='hidden';
+        ReactDom.findDOMNode(body[0]).style.overflowY = 'hidden';
         this.setState({
           navHide: false,
           activeLi: 'about'
         });
       } else {
+        var body = document.getElementsByTagName('body');
+        ReactDom.findDOMNode(body[0]).style.overflowX = '';
+        ReactDom.findDOMNode(body[0]).style.overflowY = '';
         this.setState({
           navHide: false,
           activeLi: 'home'
@@ -70,7 +79,8 @@ class App extends Component {
     let activeStyle = {
       border : 'blue 0px solid',
       borderBottomColor:'white',
-      borderBottomWidth :'3px',
+      //borderBottomWidth :'4px',
+      fontSize : '21px'
     }
 
     let unActiveStyle = {

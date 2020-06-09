@@ -21,6 +21,10 @@
   margin: 10px;
 }
 
+.announcement-div{
+  background-color: rgb(240, 168, 168);
+}
+
 .list-item {
   padding: 12px;
   opacity: 1;
@@ -28,7 +32,11 @@
   -webkit-transition: box-shadow 0.5s;
   margin: 10px;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
 .list-item-no-detail {
@@ -36,38 +44,64 @@
   opacity: 1;
   margin: 10px;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
+
 .list-item:hover {
-  box-shadow: 1px 1px 1px green, -1px -1px 1px green, 1px -1px 1px green,
-    -1px 1px 1px green;
+  box-shadow: 1px 1px 1px rgb(78, 190, 78), -1px -1px 1px rgb(78, 190, 78), 1px -1px 1px rgb(78, 190, 78),
+    -1px 1px 1px rgb(78, 190, 78);
+}
+
+.list-item-title{
+  font-weight:500;
+  font-family:Arial,Verdana,Sans-serif;
 }
 
 .list-item-tag {
   display: inline-block;
   margin-right: 10px;
+  color: grey;
 }
 
 .list-item-tag-container {
   display: inline-block;
   margin-right: 50px;
-  border: 2px solid green;
   padding: 0px 0px 0px 5px;
   border-width: 0px 0px 0px 5px;
+  font-size: 12px;
+}
+
+.list-item-tag-title {
   color: grey;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .list-item-time-container {
   display: inline-block;
   color: grey;
+  font-size: 12px;
 }
 
-.content-container-header {
+.list-item-time-title {
+  color: grey;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.list-item-time {
+  display: inline-block;
+  margin-right: 10px;
+  color: grey;
 }
 
 .list-item-a {
-  background-color: green;
+  background-color: rgb(78, 190, 78);
   width: 90px;
   height: 24px;
   font-size: 14px;
@@ -95,9 +129,9 @@
 
 .all-tags-div {
   margin: 0px 0px;
-  height : 100px;
+  height: 100px;
   overflow: hidden;
-  .all-tags-title-div{
+  .all-tags-title-div {
     border: 2px solid green;
     padding: 0px 0px 0px 5px;
     border-width: 0px 0px 0px 5px;
@@ -106,26 +140,30 @@
   }
   a {
     display: inline-block;
-    background-color: rgb(18, 141, 212);
-    padding: 0px 6px;
-    margin: 3px 5px;
+    background: white;
+    padding: 0px 15px;
+    margin: 1px 3px;
     font-size: 12px;
     line-height: 21px;
     text-align: left;
-    border: rgb(20, 66, 20);
     border-width: 1px;
-    border-radius: 1px;
-    color: white;
-    &a:visited {
-      color: white;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: grey;
+    color: grey;
+    &:visited {
+      color: grey;
     }
-    &a:link {
+    &:link {
+      color: grey;
+    }
+    &:hover {
       color: white;
+      background: rgb(78, 190, 78);
+      border-color: rgb(78, 190, 78);
     }
   }
   .all-tags-reset {
     background-color: rgb(102, 110, 53);
   }
 }
-
-
