@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <style type="text/css">
+    .bt1 {
+      display: inline-block;
+      margin: 0px 10px 0px 80px;
+      background-color: rgb(18, 141, 212);
+      border: none;
+      color: white;
+      border-radius: 2px;
+      padding: 3px 10px;
+      text-align: center;
+      outline: none;
+      text-decoration: none;
+    }
+
+    .bt2 {
+      display: inline-block;
+      margin: 0px 10px 0px 10px;
+      background-color: rgb(18, 141, 212);
+      border: none;
+      color: white;
+      border-radius: 2px;
+      padding: 3px 10px;
+      text-align: center;
+      outline: none;
+      text-decoration: none;
+    }
+    .bt3 {
+      display: inline-block;
+      margin: 0px 10px 0px 10px;
+      background-color: rgb(18, 141, 212);
+      border: none;
+      color: white;
+      border-radius: 2px;
+      padding: 3px 10px;
+      text-align: center;
+      outline: none;
+      text-decoration: none;
+    }
+  </style>
+  <script type="text/javascript" src="/public/static/js/d3.min.js"></script>
+
+  <body>
+    <div style="width: 100%; height: 100%; text-align: left;">
+      <div style="width: 100%; height: 100%; text-align: le80;">
+        <!-- <button class="bt1" type="button" onclick="update()">更新</button>
+        <button class="bt2" type="button" onclick="add()">添加</button>
+        <button class="bt3" type="button" onclick="remove()">删除</button> -->
+      </div>
+
+      <div class="svg"></div>
+    </div>
+  </body>
+
+  <script>
+    var dataset = [
+      [0.5, 0.5],
+      [0.7, 0.8],
+      [0.4, 0.9],
+      [0.11, 0.32],
+      [0.88, 0.25],
+      [0.75, 0.12],
+      [0.5, 0.1],
+      [0.2, 0.3],
+      [0.4, 0.1],
+      [0.6, 0.7],
+    ];
+
+    var width = 800;
+    var height = 500;
+
+    var svg = d3
+      .select("div .svg")
+      .insert("svg", "button")
+      .attr("width", width)
+      .attr("height", height)
+      .style("border", "black")
+      .style("border-width", "1px")
+      .style("border-style", "dashed");
+    var padding = {
+      top: 20,
+      right: 20,
+      bottom: 20,
+      left: 40,
+    };
+
+    var secendArcAngelData = initSecendData();
+    drawSecend(secendArcAngelData);
+    drawSecendText(secendArcAngelData);
+
+    var miniteArcAngelData = initMiniteData();
+    drawMinite(miniteArcAngelData);
+    drawMinText(miniteArcAngelData);
+
+    var hourArcAngelData = initHourData();
+    drawHour(hourArcAngelData);
+    drawHourText(hourArcAngelData);
+
+    var weekArcAngelData = initWeekData();
+    drawWeek(weekArcAngelData);
+    drawWeekText(weekArcAngelData);
+
+    var monthArcAngelData = initMonthData();
+    drawMonth(monthArcAngelData);
+    drawMonthText(monthArcAngelData);
+
+    var durTime = 0;
+
+    setInterval(function () {
+      var now = new Date(),
+        y = now.getFullYear(),
+        mon = now.getMonth(),
+        w = now.getDay(),
+        h = now.getHours(),
+        min = now.getMinutes(),
+        s = now.getSeconds();
+
+      durTime++;
+
+      svg.selectAll(".timeText").remove();
+      drawTimeText(durTime);
+
+      if (s == 0) {
+        svg.selectAll(".secendPath").attr("fill", "white");
+      }
+      //svg.select(".secendPath" + "_" + "sec" + (s == 0 ? 59 : s-1)).attr("fill","white");
+      svg.select(".secendPath" + "_" + "sec" + s).attr("fill", "red");
+
+      if (min == 0) {
+        svg.selectAll(".minPath").attr("fill", "white");
+      }
+      //svg.select(".minPath" + "_" + "min" + (min == 0 ? 59 : min-1)).attr("fill","white");
+      svg.select(".minPath" + "_" + "min" + min).attr("fill", "red");
+
+      svg
+        .select(".hourPath" + "_" + "hour" + (h == 0 ? 59 : h - 1))
+        .attr("fill", "white");
+      svg.select(".hourPath" + "_" + "hour" + h).attr("fill", "red");
+
+      svg
+        .select(".weekPath" + "_" + "week" + (w == 0 ? 59 : w - 1))
+        .attr("fill", "white");
+      svg.select(".weekPath" + "_" + "week" + w).attr("fill", "red");
+
+      svg
+        .select(".monthPath" + "_" + "month" + (mon == 0 ? 59 : mon - 1))
+        .attr("fill", "white");
+      svg.select(".monthPath" + "_" + "month" + mon).attr("fill", "red");
+    }, 1000);
+
+    function drawTimeText(durTime) {
+      svg
+        .append("text")
+        .attr("class", "timeText")
+        .attr("transform", function (d, i) {
+          return "translate(400,250)";
+        })
+        .attr("text-anchor", "middle")
+        .text(function () {
+          var now = new Date(),
+            y = now.getFullYear(),
+            m = now.getMonth() + 1,
+            d = now.getDate();
+          return (
+            y +
+            "-" +
+            (m < 10 ? "0" + m : m) +
+            "-" +
+            (d < 10 ? "0" + d : d) +
+            " " +
+            now.toTimeString().substr(0, 8)
+          );
+        });
+
+      svg
+        .append("text")
+        .attr("class", "timeTitleText")
+        .attr("transform", function (d, i) {
+          return "translate(400,230)";
+        })
+        .attr("text-anchor", "middle")
+        .text("当前时间");
+
+      svg
+        .append("text")
+        .attr("class", "timeTitleText")
+        .attr("transform", function (d, i) {
+          return "translate(400,275)";
+        })
+        .attr("text-anchor", "middle")
+        .text("运行时间");
+
+      svg
+        .append("text")
+        .attr("class", "timeText")
+        .attr("transform", function (d, i) {
+          return "translate(400,295)";
+        })
+        .attr("text-anchor", "middle")
+        .text(durTime + "s");
+    }
+
+    function drawSecendText(dataset) {
+      var arc = d3.arc();
+      svg
+        .selectAll(".secendText")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .attr("class", "secendText")
+        .attr("transform", function (d, i) {
+          return (
+            "translate(400,250)" +
+            "translate(" +
+            arc.centroid(d) +
+            ")" +
+            "rotate(" +
+            (((d.endAngle - d.startAngle) / 2 + d.startAngle - 0) / Math.PI) *
+              180 +
+            ")"
+          );
+        })
+        .attr("fill", "black")
+        .attr("font-size", "10px")
+        .text(function (d, i) {
+          return i;
+        })
+        .attr("text-anchor", "middle");
+    }
+
+    function drawMinText(dataset) {
+      var arc = d3.arc();
+      svg
+        .selectAll(".minText")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .attr("class", "minText")
+        .attr("transform", function (d, i) {
+          return (
+            "translate(400,250)" +
+            "translate(" +
+            arc.centroid(d) +
+            ")" +
+            "rotate(" +
+            (((d.endAngle - d.startAngle) / 2 + d.startAngle - 0) / Math.PI) *
+              180 +
+            ")"
+          );
+        })
+        .attr("fill", "black")
+        .attr("font-size", "10px")
+        .text(function (d, i) {
+          return i;
+        })
+        .attr("text-anchor", "middle");
+    }
+
+    function drawHourText(dataset) {
+      var arc = d3.arc();
+      svg
+        .selectAll(".hourText")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .attr("class", "hourText")
+        .attr("transform", function (d, i) {
+          return (
+            "translate(400,250)" +
+            "translate(" +
+            arc.centroid(d) +
+            ")" +
+            "rotate(" +
+            (((d.endAngle - d.startAngle) / 2 + d.startAngle - 0) / Math.PI) *
+              180 +
+            ")"
+          );
+        })
+        .attr("fill", "black")
+        .attr("font-size", "10px")
+        .text(function (d, i) {
+          return i;
+        })
+        .attr("text-anchor", "middle");
+    }
+
+    function drawWeekText(dataset) {
+      var arc = d3.arc();
+      svg
+        .selectAll(".weekText")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .attr("class", "weekText")
+        .attr("transform", function (d, i) {
+          return (
+            "translate(400,250)" +
+            "translate(" +
+            arc.centroid(d) +
+            ")" +
+            "rotate(" +
+            (((d.endAngle - d.startAngle) / 2 + d.startAngle - 0) / Math.PI) *
+              180 +
+            ")"
+          );
+        })
+        .attr("fill", "black")
+        .attr("font-size", "10px")
+        .text(function (d, i) {
+          return i;
+        })
+        .attr("text-anchor", "middle");
+    }
+
+    function drawMonthText(dataset) {
+      var arc = d3.arc();
+      svg
+        .selectAll(".monthText")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .attr("class", "monthText")
+        .attr("transform", function (d, i) {
+          return (
+            "translate(400,250)" +
+            "translate(" +
+            arc.centroid(d) +
+            ")" +
+            "rotate(" +
+            (((d.endAngle - d.startAngle) / 2 + d.startAngle - 0) / Math.PI) *
+              180 +
+            ")"
+          );
+        })
+        .attr("fill", "black")
+        .attr("font-size", "10px")
+        .text(function (d, i) {
+          return i + 1;
+        })
+        .attr("text-anchor", "middle");
+    }
+
+    function drawSecend(dataset) {
+      svg
+        .selectAll(".secendPath")
+        .data(dataset)
+        .enter()
+        .append("path")
+        .attr("d", function (d, i) {
+          return d3.arc()(d);
+        })
+        .attr("transform", "translate(400, 250)")
+        .attr("class", function (d, i) {
+          return "secendPath" + "_" + "sec" + i + " " + "secendPath";
+        })
+        .attr("stroke", "grey")
+        .attr("stroke-width", "1px")
+        .attr("fill", "white");
+    }
+
+    function drawMinite(dataset) {
+      svg
+        .selectAll(".minPath")
+        .data(dataset)
+        .enter()
+        .append("path")
+        .attr("d", function (d, i) {
+          return d3.arc()(d);
+        })
+        .attr("transform", "translate(400, 250)")
+        .attr("class", function (d, i) {
+          return "minPath" + "_" + "min" + i + " " + "minPath";
+        })
+        .attr("stroke", "grey")
+        .attr("stroke-width", "1px")
+        .attr("fill", "white");
+    }
+
+    function drawHour(dataset) {
+      svg
+        .selectAll(".hourPath")
+        .data(dataset)
+        .enter()
+        .append("path")
+        .attr("d", function (d, i) {
+          return d3.arc()(d);
+        })
+        .attr("transform", "translate(400, 250)")
+        .attr("class", function (d, i) {
+          return "hourPath" + "_" + "hour" + i;
+        })
+        .attr("stroke", "grey")
+        .attr("stroke-width", "1px")
+        .attr("fill", "white");
+    }
+
+    function drawWeek(dataset) {
+      svg
+        .selectAll(".weekPath")
+        .data(dataset)
+        .enter()
+        .append("path")
+        .attr("d", function (d, i) {
+          return d3.arc()(d);
+        })
+        .attr("transform", "translate(400, 250)")
+        .attr("class", function (d, i) {
+          return "weekPath" + "_" + "week" + i;
+        })
+        .attr("stroke", "grey")
+        .attr("stroke-width", "1px")
+        .attr("fill", "white");
+    }
+
+    function drawMonth(dataset) {
+      svg
+        .selectAll(".monthPath")
+        .data(dataset)
+        .enter()
+        .append("path")
+        .attr("d", function (d, i) {
+          return d3.arc()(d);
+        })
+        .attr("transform", "translate(400, 250)")
+        .attr("class", function (d, i) {
+          return "monthPath" + "_" + "month" + i;
+        })
+        .attr("stroke", "grey")
+        .attr("stroke-width", "1px")
+        .attr("fill", "white");
+    }
+
+    function initMonthData(dataset) {
+      var data = [];
+      for (let i = 0; i < 12; i++) {
+        data.push({
+          startAngle: Math.PI * (i / 6),
+          endAngle: Math.PI * ((i + 1) / 6),
+          innerRadius: 130,
+          outerRadius: 150,
+          padAngle: Math.PI / 180,
+        });
+      }
+      return data;
+    }
+
+    function initWeekData(dataset) {
+      var data = [];
+      for (let i = 0; i < 7; i++) {
+        data.push({
+          startAngle: Math.PI * (i / 3.5),
+          endAngle: Math.PI * ((i + 1) / 3.5),
+          innerRadius: 150,
+          outerRadius: 170,
+          padAngle: Math.PI / 180,
+        });
+      }
+      return data;
+    }
+
+    function initHourData() {
+      var data = [];
+      for (let i = 0; i < 24; i++) {
+        data.push({
+          startAngle: Math.PI * (i / 12),
+          endAngle: Math.PI * ((i + 1) / 12),
+          innerRadius: 170,
+          outerRadius: 190,
+          padAngle: Math.PI / 180,
+        });
+      }
+      return data;
+    }
+
+    function initSecendData() {
+      var data = [];
+      for (let i = 0; i < 60; i++) {
+        data.push({
+          startAngle: Math.PI * (i / 30),
+          endAngle: Math.PI * ((i + 1) / 30),
+          innerRadius: 210,
+          outerRadius: 230,
+          padAngle: Math.PI / 180,
+        });
+      }
+      return data;
+    }
+
+    function initMiniteData() {
+      var data = [];
+      for (let i = 0; i < 60; i++) {
+        data.push({
+          startAngle: Math.PI * (i / 30),
+          endAngle: Math.PI * ((i + 1) / 30),
+          innerRadius: 190,
+          outerRadius: 210,
+          padAngle: Math.PI / 180,
+        });
+      }
+      return data;
+    }
+
+    function update() {
+      console.log(dataset);
+      for (var i = 0; i < dataset.length; i++) {
+        console.log(dataset[i]);
+        dataset[i][0] = Math.random();
+        dataset[i][1] = Math.random();
+        console.log(dataset[i]);
+      }
+
+      draw(dataset);
+    }
+
+    function add() {
+      dataset.push([Math.random(), Math.random()]);
+      draw(dataset);
+    }
+
+    function remove() {
+      dataset.pop();
+      draw(dataset);
+    }
+  </script>
+</html>

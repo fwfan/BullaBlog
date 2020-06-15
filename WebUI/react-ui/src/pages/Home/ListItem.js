@@ -28,7 +28,7 @@ class ListItem extends Component {
 
         let ListItemClassName = detailA ? "list-item" : "list-item-no-detail"
 
-        let demoStyle = useDemoUrl && demoUrl? {
+        let demoStyle = useDemoUrl > 0 && demoUrl? {
             width: '100%',
             height: '300px',
             margin: '10px 0px 10px 0px',
@@ -37,9 +37,9 @@ class ListItem extends Component {
             display :'none' 
         }
 
-        let demoUrlBak = useDemoUrl && demoUrl ? demoUrl :'';
+        let demoUrlBak = demoUrl ? demoUrl :'';
         
-        let observeDemoA = useDemoUrl && useDemoUrl ? {
+        let observeDemoA = demoUrl ? {
             display :'inline-block',
             margin :'0px 0px 0px 20px'
          } : {
