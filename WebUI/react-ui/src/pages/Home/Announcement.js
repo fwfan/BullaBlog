@@ -41,7 +41,7 @@ class Announcement extends Component {
 
         let contentStyle = {
             width: '100%',
-            height: '300px',
+            //height: '150px',
             backgroundColor: 'white',
             padding: '10px 10px 10px 10px',
             borderRadius: '2px'

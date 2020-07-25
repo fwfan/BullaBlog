@@ -6,18 +6,18 @@ import $ from 'jquery';
 import Announcement from './Announcement.js';
 import LoadingTips from '../../components/LoadingTips/LoadingTips.js';
 import UserMood from './UserMood.js';
-import { ProcessManagerE} from '../../components/ProgressBar/ProcessBar';
+import { ProcessManagerE } from '../../components/ProgressBar/ProcessBar';
 
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            homeContent : [],
-            loadState : 0,
-            pageNum : 0,
-            filter : '',
-            stopFetch : false
+            homeContent: [],
+            loadState: 0,
+            pageNum: 0,
+            filter: '',
+            stopFetch: false
         };
         this.lastScrollTime = 0;
         this.scrollHandler = this.scrollHandler.bind(this);
@@ -29,18 +29,18 @@ class Home extends Component {
         let winHeight = $(window).height();
         let scrollTop = $(window).scrollTop();
         let curTime = new Date();
-        if (150 + scrollTop >= conHeight - winHeight){
-            if(curTime - this.lastScrollTime < 500 || this.state.stopFetch === true) return; 
+        if (150 + scrollTop >= conHeight - winHeight) {
+            if (curTime - this.lastScrollTime < 500 || this.state.stopFetch === true) return;
             this.lastScrollTime = curTime;
             this.beforeFetchContent(this.state.filter, false);
         }
     }
 
-    beforeFetchContent(filter='', firstTime=true) {
+    beforeFetchContent(filter = '', firstTime = true) {
 
         this.setState({ ...this.state, ...{ filter: filter } });
         let url = `/Index/Index/subIndex?limit=5`;
-        let firstPageNum = 8;
+        let firstPageNum = 5;
         ProcessManagerE.startProcess();
 
         if (this.state.pageNum === 0 || firstTime) {
@@ -51,21 +51,21 @@ class Home extends Component {
         }
 
         if (filter) {
-            for(let name in filter){
+            for (let name in filter) {
                 url = url + '&' + name + '=' + filter[name];
             }
-            if(firstTime){
-                this.clearContent(true,url);
-            }else{
+            if (firstTime) {
+                this.clearContent(true, url);
+            } else {
                 this.clearContent(false, url);
             }
-        }else{
+        } else {
             this.clearContent(false, url);
         }
 
     }
 
-    fetchContent(url){
+    fetchContent(url) {
         fetch(url, {
             method: 'GET'
         }).then(res => res.json()).then(
@@ -75,7 +75,7 @@ class Home extends Component {
                 this.setState({
                     ...this.state, ...{
                         stopFetch: data.result.length < 5 ? true : false,
-                        loadState: data.result.length < 5 ? 3: 2,
+                        loadState: data.result.length < 5 ? 3 : 2,
                         pageNum: num,
                         homeContent: [...this.state.homeContent, ...data.result]
                     }
@@ -84,7 +84,7 @@ class Home extends Component {
         );
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         window.removeEventListener('scroll', this.scrollHandler);
     }
 
@@ -95,32 +95,32 @@ class Home extends Component {
         this.beforeFetchContent();
     }
 
-    clearContent=(flag, url)=>{
-        if (flag){
+    clearContent = (flag, url) => {
+        if (flag) {
             this.setState({ ...this.state, ...{ homeContent: [], loadState: 1 } }, () => console.log(this.state));
-        }else{
-            this.setState({ ...this.state, ...{loadState: 1 } }, () => console.log(this.state));
+        } else {
+            this.setState({ ...this.state, ...{ loadState: 1 } }, () => console.log(this.state));
         }
-        
+
         this.fetchContent(url);
     }
 
     render() {
         return (
             <div >
-                <div className="content-container-left" >
+                <div className="home-contanier">
+                    <div className="content-container" >
+                        <div className="content-container-header"></div>
+                        {this.state.homeContent.map(item => <ListItem key={item.uid} view_num={item.view_num} title={item.title} time={item.upload_time} tags={item.tags ? item.tags.split(".") : []}
+                            uid={item.uid} article_sub={item.article_sub} detailA={true} demoUrl={item.demoUrl} useDemoUrl={item.useDemoUrl} content_type={item.content_type} />)}
+                        <LoadingTips loadState={this.state.loadState}></LoadingTips>
+                    </div>
+                    <div className="content-container-right" >
+                        <Announcement homeFetch={this.beforeFetchContent} />
+                        <UserMood />
+                    </div>
+                </div>
 
-                </div>
-                <div className="content-container" >
-                    <div className="content-container-header"></div>
-                    {this.state.homeContent.map(item => <ListItem key={item.uid} title={item.title} time={item.upload_time} tags={item.tags ? item.tags.split(".") : []} 
-                        uid={item.uid} article_sub={item.article_sub} detailA={true} demoUrl={item.demoUrl} useDemoUrl={item.useDemoUrl} content_type={item.content_type}/>)}
-                    <LoadingTips loadState={this.state.loadState}></LoadingTips>
-                </div>
-                <div className="content-container-right" >
-                    <Announcement homeFetch={this.beforeFetchContent} />
-                    <UserMood />
-                </div>
             </div>
         );
     }

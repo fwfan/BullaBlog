@@ -58,7 +58,7 @@ class ArticleCon extends Component{
         return (
             <div className='article-con'>
                <div className='article-con-article'>
-                    {this.state.article.map(item => <ListItem key={item.uid} title={item.title} time={item.upload_time} tags={item.tags ? item.tags.split(".") : []} 
+                    {this.state.article.map(item => <ListItem key={item.uid} view_num={item.view_num}title={item.title} time={item.upload_time} tags={item.tags ? item.tags.split(".") : []} 
                         uid={item.uid} article_sub={item.article} demoUrl={item.demoUrl} useDemoUrl={item.useDemoUrl}/>)}
                </div>
                {/* <div className='article-con-relate'>sfdf</div> */}

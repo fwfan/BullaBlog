@@ -13,7 +13,6 @@ const rootReducer = combineReducers({
 
  // 创建store，第一个参数是根reducer，第二个参数可以是初始化的state
 const store = createStore(rootReducer, applyMiddleware(thunk));
-console.log(store.getState());
 export default store;
 
 

@@ -97,4 +97,16 @@ class Index
         }
     }
 
+    //修改文章的访问量
+    public function putViewNum(Request $request){
+        $uid = $request->param('uid');
+        $result = Db::execute('update content set view_num=view_num+1 where uid=? ', [(int)$uid]);
+
+        if ($result) {
+            return formatResult(true, $result, '');
+        } else {
+            return formatResult(false, $result, '');
+        }
+    }
+
 }

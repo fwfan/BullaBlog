@@ -127,6 +127,7 @@ class App extends Component {
                 </li>
               </ul>
             </div>
+            <div className="nav-container-login-div"><a className="nav-container-login-a"></a></div>
           </div>
 
           <div style={this.state.navHide ? contentContainerTopHideStyle : contentContainerTopStyle} className="content-container-top" ></div>

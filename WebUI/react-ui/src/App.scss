@@ -9,6 +9,19 @@ body {
   background-color:#eee;
 }
 
+.nav-container {
+  .nav-container-login-div {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    .nav-container-login-a {
+      color: white;
+      font-size: 12px;
+      height: 14px;
+    }
+  }
+}
+
 .nav {
   float :left;
   width :80%;

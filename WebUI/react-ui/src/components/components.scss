@@ -1,58 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .scroll-div::-webkit-scrollbar {
   display: none;
 }
@@ -60,14 +7,13 @@
 .author-div {
   height: 300px;
   width: 100%;
-  display: inline-block;
   background-color: white;
   padding: 10px 10px 10px 10px;
   margin-top: 15px;
+  position: relative;
   border-radius: 2px;
   word-break: break-all;
   word-wrap: break-word;
-  position: absolute;
   border-radius: 2px;
   font-size: 18px;
   -webkit-border-radius: 2px;
@@ -250,9 +196,9 @@
 }
 
 .usermood-form {
-  height: 80%;
+  height: 100%;
   width: 100%;
-  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .usermood-textarea {
@@ -273,11 +219,14 @@
   -o-border-radius: 3px;
 }
 .usermood-form-div {
-  height: 100%;
-  width: 100%;
+  height: 50%;
+  width: 90%;
   opacity: 1;
   z-index: 10;
   transition: opacity 1s;
+  top : 10px;
+  left: 5%;
+  position: absolute;
   -webkit-transition: opacity 1s;
   -moz-transition: opacity 1s;
   -ms-transition: opacity 1s;
@@ -285,8 +234,8 @@
 }
 
 .usermood-form-div-disable {
-  height: 100%;
-  width: 100%;
+  height: 0;
+  width: 0;
   opacity: 0;
   z-index: -1;
 }
@@ -294,9 +243,6 @@
 .usermood-display-div {
   height: 100%;
   width: 100%;
-  position: relative;
-  top: -285px;
-  left: 0px;
   opacity: 1;
   z-index: 10;
   overflow-x: hidden;
@@ -314,9 +260,16 @@
 .usermood-display-div-disable {
   height: 100%;
   width: 100%;
-  left: 0px;
-  position: relative;
-  top: -100%;
+  opacity: 1;
+  z-index: 10;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 14px;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
   opacity: 0;
   z-index: -1;
 }

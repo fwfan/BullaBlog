@@ -75,16 +75,17 @@ class UserMood extends Component {
 
         const newBtnStyle = {
             marginLeft: '20px',
-            bottom: '-40px',
-            position: 'absolute',
-            float: 'right',
-            right:'0px',
             opacity:0
         }
 
 
         return (
             <div className="author-div">
+
+                <div className={this.state.moodMode === 'edit' ? 'usermood-display-div-disable' : 'usermood-display-div'}>
+                    {this.props.userMood.map(item => <div key={Math.random()}><div className='usermood-time-div'>{getDateAndTime(item['submitTime'], false)}</div><p>{item['mood']}</p></div>)}
+                </div>
+
                 <div className={this.state.moodMode === 'edit' ? 'usermood-form-div' : 'usermood-form-div-disable'}>
                     <form className='usermood-form' >
                         <textarea maxLength={120} className='usermood-textarea' value={this.state.editMood} onChange={this.textareaOnchangeHandler} placeholder={placeholder}></textarea>
@@ -93,19 +94,14 @@ class UserMood extends Component {
                     <button className="cancel-btn" style={btnStyle} onClick={this.cancleSubmitMood}>取 消</button>
                 </div>
                 
-
-                <div className={this.state.moodMode === 'edit' ? 'usermood-display-div-disable' : 'usermood-display-div'}>
-                    {this.props.userMood.map(item => <div key={Math.random()}><div className='usermood-time-div'>{getDateAndTime(item['submitTime'], false)}</div><p>{item['mood']}</p></div>)}
-                </div>
-
                 <button className="create-btn" style={newBtnStyle} onClick={this.changeMoodMode}>新 建</button>
-                <div className="roll-div">
+                {/* <div className="roll-div">
                     <div className="roll-item1 roll-item"></div>
                     <div className="roll-item2 roll-item"></div>
                     <div className="roll-item3 roll-item"></div>
                     <div className="roll-item4 roll-item"></div>
                     <div className="roll-item5 roll-item"></div>
-                </div>
+                </div> */}
                 
             </div>
         );
