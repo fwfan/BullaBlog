@@ -1,5 +1,5 @@
 //进度条reducer
-import { PROCESS_START, PROCESS_END, PROCESS_INIT, PROCESS_DOING } from '../actionTypes';
+import { PROCESS_START, PROCESS_END, PROCESS_DOING } from '../actionTypes';
 //status: init/start/doing/end/
 const initializeState = {
     processStatus: {

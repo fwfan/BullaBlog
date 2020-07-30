@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ScrollDiv from '../../components/ScrollDiv/ScrollDiv.js';
+// import ScrollDiv from '../../components/ScrollDiv/ScrollDiv.js';
 import './About.scss';
 
 class About extends Component {

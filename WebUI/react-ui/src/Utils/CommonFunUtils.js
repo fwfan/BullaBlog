@@ -2,7 +2,6 @@
 //获取日期和时间，格式如2020-10-01 16:42:12
 export const getDateAndTime = (timeStamp, js = true) => {
 
-    var timeStamp = timeStamp;
     if (!js) {
         timeStamp = parseInt(timeStamp + '000');
     }
@@ -16,7 +15,6 @@ export const getDateAndTime = (timeStamp, js = true) => {
 //获取时间
 export const getTime = (timeStamp, js = true) => {
 
-    var timeStamp = timeStamp;
     if (!js) {
         timeStamp = parseInt(timeStamp + '000');
     }
@@ -28,7 +26,6 @@ export const getTime = (timeStamp, js = true) => {
 //
 export const getDate = (timeStamp, js = true) => {
 
-    var timeStamp = timeStamp;
     if (!js) {
         timeStamp = parseInt(timeStamp + '000');
     }
@@ -43,4 +40,18 @@ export const getDate = (timeStamp, js = true) => {
 //获取时间戳
 export const getTimeStamp = (date) => {
     return new Date(date);
+}
+
+export const commonFetch = (url) => (method) => (callback, params) => {
+    fetch(url, {
+        method,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+    }).then(res => res.json()).then(
+        (data) => {
+            callback(data);
+        }
+    );
 }

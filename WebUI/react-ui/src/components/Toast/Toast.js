@@ -5,9 +5,6 @@ import './Toast.css';
 var EventManagerExmaple = new EventManager();
 
 class ToastManager extends Component {
-    constructor(params) {
-        super(params);
-    }
 
     info = () => {
         EventManagerExmaple.fireEvent('info');

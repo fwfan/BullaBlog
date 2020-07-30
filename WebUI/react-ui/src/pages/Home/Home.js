@@ -97,9 +97,9 @@ class Home extends Component {
 
     clearContent = (flag, url) => {
         if (flag) {
-            this.setState({ ...this.state, ...{ homeContent: [], loadState: 1 } }, () => console.log(this.state));
+            this.setState({ ...this.state, ...{ homeContent: [], loadState: 1 } });
         } else {
-            this.setState({ ...this.state, ...{ loadState: 1 } }, () => console.log(this.state));
+            this.setState({ ...this.state, ...{ loadState: 1 } });
         }
 
         this.fetchContent(url);

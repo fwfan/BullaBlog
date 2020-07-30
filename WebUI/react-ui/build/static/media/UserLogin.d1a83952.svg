@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-flat-20030114.dtd">
+<!-- Created by SVGDeveloper 1.0 -->
+<svg width="90" height="90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<radialGradient id="radialGradient">
+<stop offset="0%" stop-color="rgb(154,120,0)" stop-opacity="1" />
+<stop offset="49%" stop-color="rgb(255,249,227)" stop-opacity="1" />
+<stop offset="50%" stop-color="rgb(255,255,255)" stop-opacity="1" />
+<stop offset="51%" stop-color="rgb(255,255,255)" stop-opacity="1" />
+<stop offset="100%" stop-color="rgb(0,0,128)" stop-opacity="1" />
+</radialGradient>
+</defs>
+<ellipse cx="356.5" cy="210.5" rx="0" ry="0" fill="#FFFFFF" stroke="#000000"  />
+<ellipse cx="40.5" cy="20" rx="0" ry="0" fill="#FFFFFF" stroke="#000000" />
+<ellipse cx="81" cy="93" rx="0" ry="0" fill="#FFFFFF" stroke="#000000" />
+<ellipse cx="320" cy="240" rx="40.5" ry="30.5" fill="#009900" stroke="#FFFFFF" stroke-opacity="1" transform="matrix(-1,0,0,-1,364.5,297.5)" xmlns="http://www.w3.org/2000/svg" />
+<ellipse cx="320" cy="240" rx="29.5" ry="30" fill="#009900" stroke="#009900" transform="matrix(-1,0,0,-1,364,272)" xmlns="http://www.w3.org/2000/svg" />
+</svg>

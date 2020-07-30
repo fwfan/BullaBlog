@@ -1,0 +1,113 @@
+.login-page-div {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 4;
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  .login-win-div {
+    $loginWinWidth: 320px;
+    $loginWinHeight: 230px;
+    background-color: white;
+    z-index: 4;
+    width: $loginWinWidth;
+    height: $loginWinHeight;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border: 0px solid white;
+    box-shadow: 1px 1px 1px 1px rgb(255, 255, 255),
+      -1px -1px 1px 1px rgb(255, 255, 255), -1px 1px 1px 1px rgb(68, 20, 20),
+      1px -1px 1px 1px rgb(255, 255, 255);
+    border-radius: 2px;
+    padding: 20px 20px 20px 20px;
+    transform: translate(-$loginWinWidth/2, -$loginWinHeight/2);
+    .login-win-title-div {
+      font-size: 20px;
+      height: 21px;
+      width: 100%;
+      margin-bottom: 30px;
+      color: #6a6f77;
+    }
+    .login-win-form {
+      .login-from-field {
+        appearance: none;
+        outline: none;
+        background: none;
+        font-size: 10px;
+        height: 30px;
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 10px;
+        color: #6a6f77;
+        border: 1px solid #c8cccf;
+        border-radius: 4px;
+        padding-left: 10px;
+        text-decoration: none;
+        &:focus {
+          border: 2px solid green;
+          color: black;
+          font-size: 12px;
+        }
+        &:invalid {
+          border: 2px dashed $LightRed;
+        }
+      }
+
+      .login-from-field-disable {
+        border: 2px dashed $LightRed;
+      }
+
+      .login-radio-div {
+        text-align: center;
+        .login-radio{
+          display: inline-block;
+          margin: 0px 20px 0px 20px;
+        }
+      }
+
+      .login-info-div{
+        visibility: hidden;
+        font-size: 10px;
+        width: 90%;
+        margin: 0 auto;
+        color: $LightRed;
+      }
+
+      .login-btn-div {
+        text-align: center;
+        width: 90%;
+        height: 45px;
+        margin-top: 10px;
+        position: absolute;
+        .login-form-btn {
+          outline: none;
+          font-size: 14px;
+          height: 30px;
+          color: white;
+          background-color: $LightGreenColor;
+          border: 0px solid #c8cccf;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        .login-form-btn-login {
+          width: 60%;
+          position: absolute;
+          left: 20px;
+        }
+        .login-form-btn-cancel {
+          width: 25%;
+          position: absolute;
+          right: 20px;
+          background-color: $GreyColor;
+        }
+      }
+    }
+  }
+}
+
+.login-page-div-hide {
+  visibility: hidden;
+}

@@ -15,10 +15,10 @@ class ArticleCon extends Component{
     }
 
     getQueryVariable(variable) {
-        let pos, str, para, parastr;
+        let str, parastr;
         let array = []
         str = window.location.href;
-        if (str.split("?")[1] != undefined && str.split("=")[1] != undefined) {
+        if (str.split("?")[1] !== undefined && str.split("=")[1] !== undefined) {
             parastr = str.split("?")[1];
             parastr = decodeURIComponent(parastr);
 

@@ -1,35 +1,53 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./pages/Home/Home.js";
 import About from "./pages/About/About.js";
 //import Life from "./pages/Life/Life.js";
 import ArticleCon from "./pages/Article/ArticleCon.js";
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 import { Toast } from "./components/Toast/Toast.js";
-import {ProcessBar} from "./components/ProgressBar/ProcessBar";
+import { ProcessBar } from "./components/ProgressBar/ProcessBar";
 import ReactDom from 'react-dom';
+import LoginWin from './pages/Login/Login.js';
+import iconLogout from "./image/UserLogout.svg";
+import iconLogin from "./image/UserLogin.svg";
+import { commonFetch } from "./Utils/CommonFunUtils"
+
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.loginRef = React.createRef();
     this.state = {
       navHide: false,
-      activeLi: 'home'
+      activeLi: 'home',
+      userIconLogin: false
     }
   }
 
   componentDidMount() {
 
     this.changeRouteState()();
-    
+
     window.addEventListener('hashchange', this.changeRouteState());
   }
 
-  changeRouteState=()=>{
+  userBtnHandler = () => {
+    if (this.state.userIconLogin) {
+      this.loginRef.current.loginOut();
+    }
+    this.loginRef.current.showLoginWin();
+  }
 
-    return ()=>{
+  setUserIconLogin = (userIconLogin) => {
+    this.setState({ ...this.state, ...{ userIconLogin } });
+  }
+
+  changeRouteState = () => {
+    var body = document.getElementsByTagName('body');
+    return () => {
       if (window.location.hash.indexOf('article') > 0) {
-        
+
         this.setState({
           navHide: true,
           activeLi: 'article'
@@ -45,15 +63,13 @@ class App extends Component {
           activeLi: 'life'
         });
       } else if (window.location.hash.indexOf('about') > 0) {
-        var body = document.getElementsByTagName('body');
-        ReactDom.findDOMNode(body[0]).style.overflowX='hidden';
+        ReactDom.findDOMNode(body[0]).style.overflowX = 'hidden';
         ReactDom.findDOMNode(body[0]).style.overflowY = 'hidden';
         this.setState({
           navHide: false,
           activeLi: 'about'
         });
       } else {
-        var body = document.getElementsByTagName('body');
         ReactDom.findDOMNode(body[0]).style.overflowX = '';
         ReactDom.findDOMNode(body[0]).style.overflowY = '';
         this.setState({
@@ -77,10 +93,10 @@ class App extends Component {
     }
 
     let activeStyle = {
-      border : 'blue 0px solid',
-      borderBottomColor:'white',
+      border: 'blue 0px solid',
+      borderBottomColor: 'white',
       //borderBottomWidth :'4px',
-      fontSize : '21px'
+      fontSize: '21px'
     }
 
     let unActiveStyle = {
@@ -90,7 +106,7 @@ class App extends Component {
 
     let navHideStyle = {
       height: '0px',
-      display : 'none'
+      display: 'none'
     }
 
     let contentContainerTopStyle = {
@@ -104,7 +120,7 @@ class App extends Component {
 
     return (
       <div>
-        
+
         <Router>
           <Toast />
           <div style={this.state.navHide ? navHideStyle : navStyle} className="nav-container">
@@ -127,13 +143,13 @@ class App extends Component {
                 </li>
               </ul>
             </div>
-            <div className="nav-container-login-div"><a className="nav-container-login-a"></a></div>
+            <div className="nav-container-login-div"><button className="nav-container-login-btn" onClick={this.userBtnHandler} style={{ backgroundImage: `url(${this.state.userIconLogin ? iconLogin : iconLogout})` }}></button></div>
           </div>
 
           <div style={this.state.navHide ? contentContainerTopHideStyle : contentContainerTopStyle} className="content-container-top" ></div>
 
-          <ProcessBar />          
-          
+          <ProcessBar />
+
           <CacheSwitch>
             <CacheRoute exact saveScrollPosition={true} style={contentContainerTopHideStyle} path="/">
               <Home />
@@ -152,7 +168,9 @@ class App extends Component {
             </Route>
           </CacheSwitch>
         </Router>
-        
+
+        <LoginWin ref={this.loginRef} setUserIconLogin={this.setUserIconLogin} />
+
       </div>
     );
   }

@@ -220,10 +220,6 @@ class Calendar extends Component {
         }
     }
 
-    componentDidMount(){
-
-    }
-
     getDayStyle=(dayObj)=>{
         let notThisMonthDayStyle = {};
 
