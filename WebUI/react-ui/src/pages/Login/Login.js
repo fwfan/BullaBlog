@@ -12,6 +12,7 @@ const LoginWin = forwardRef((props, ref) => {
     const [hasInterval, setHasInterval] = useState(false);
     const [loginFail, setLoginFail] = useState(false);
     const [loginStatus, setLoginStatus] = useState(false);
+    const [token, setToken] = useState('');
 
     const userNameOnChangeHandler = (event) => { setUsername(event.target.value) };
     const passwordOnChangeHandler = (event) => { setPassword(event.target.value) };
@@ -32,11 +33,24 @@ const LoginWin = forwardRef((props, ref) => {
 
     const loginFetchCallback = (data) => {
         setUserIconLogin(data.success);
+
         if (data.success) {
             setVisible(false);
             setLoginFail(false);
+            if(hasInterval){
+                clearInterval(hasInterval);
+            }
+            setToken('');
+
+            if(loginType === "session"){
+                let interval = setInterval(getLoginStatus, 10000);
+                setHasInterval(interval);
+            }else{
+                setToken(data.result.token);
+            }
         } else {
             setLoginFail(true);
+            setToken('');
         }
         setLoginStatus(false);
     }
@@ -55,11 +69,19 @@ const LoginWin = forwardRef((props, ref) => {
         })
     )
 
+    useEffect(()=>{
+        if(hasInterval && token !== ''){
+            clearInterval(hasInterval);
+            let interval = setInterval(getLoginStatus, 10000);
+            setHasInterval(interval);
+        }
+    }, [token]);
+
     useEffect(() => {
         visible ? clearForm() : emptyFun();
         if (!hasInterval) {
-            setHasInterval(true);
-            setInterval(getLoginStatus, 10000);
+            let interval = setInterval(getLoginStatus, 10000);
+            setHasInterval(interval);
         }
     }, [visible]);
 
@@ -68,13 +90,19 @@ const LoginWin = forwardRef((props, ref) => {
         if (username && password) {
             setLoginStatus(true);
             commonFetch('/index/Login/login')('post')(loginFetchCallback, { username, password, loginType });
-        } else {
-
         }
     }
 
     const getLoginStatus = () => {
-        commonFetch('/index/Login/login')('get')(getLoginStatusCallback);
+        let url = '';
+
+        if(loginType === "session"){
+            url = `/index/Login/login?loginType=${loginType}`;
+        }else{
+            url = `/index/Login/login?token=${token}&loginType=${loginType}`;
+        }
+
+        commonFetch(url)('get')(getLoginStatusCallback);
     }
 
     const loginInfoStyle = () => {

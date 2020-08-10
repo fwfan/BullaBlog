@@ -11,7 +11,6 @@ import ReactDom from 'react-dom';
 import LoginWin from './pages/Login/Login.js';
 import iconLogout from "./image/UserLogout.svg";
 import iconLogin from "./image/UserLogin.svg";
-import { commonFetch } from "./Utils/CommonFunUtils"
 
 
 class App extends Component {
